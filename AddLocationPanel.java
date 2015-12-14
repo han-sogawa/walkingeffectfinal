@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class AddLocationPanel extends JPanel{
-  private JLabel header, enterName, nearbyLoc1, nearbyLoc2, dist1, dist2, footer;
+  private JLabel header, enterName, nearbyLoc1, nearbyLoc2, dist1, dist2, about, footer;
   private JPanel navi, mapPic;
   private JComboBox nearbyLoc1Combo, nearbyLoc2Combo;
   private JButton add;
@@ -144,15 +144,18 @@ public class AddLocationPanel extends JPanel{
     hasStairsCheck2.setFont(keyFont);
     hasStairsCheck2.setBackground(BACKGROUND);
     
+    about = new JLabel("Enter descriptive information about your location here: ");
+    about.setFont(customFont);
     //aboutInfo text area
-    aboutInfo = new JTextArea(12,20);
+    aboutInfo = new JTextArea();
     aboutInfo.setFont(keyFont);
-    //aboutInfo.setPreferredSize(new Dimension(250, 100));
-    aboutInfo.setColumns(25);
+    aboutInfo.setPreferredSize(new Dimension(30, 50));
+    //aboutInfo.setColumns(25);
     aboutInfo.setMaximumSize(aboutInfo.getPreferredSize());
     aboutInfo.setLineWrap(true);
+    aboutInfo.setAlignmentY(CENTER_ALIGNMENT);
     aboutScroll = new JScrollPane (aboutInfo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    
+    //JScrollPane  = new JScrollPane(keyText);
     
     //creates submit button
     add = new JButton("Add Location");
@@ -182,7 +185,9 @@ public class AddLocationPanel extends JPanel{
     navi.add(distField2Panel);
     navi.add(hasHillsCheck2);
     navi.add(hasStairsCheck2);
-    navi.add(aboutInfo);
+    navi.add(Box.createRigidArea(new Dimension(0, 10)));
+    navi.add(about);
+    navi.add(aboutScroll);
     navi.add(add);
     
     
