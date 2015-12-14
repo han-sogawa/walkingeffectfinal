@@ -431,16 +431,6 @@ public class Map implements ObjectGraph<Location, Path>{
   } 
   
   /******************************************************************
-    isUndirected()
-    
-    Not used - only fulfills requirement in Graph interface
-    ******************************************************************/
-  public boolean isUndirected(){
-    throw new UnsupportedOperationException();
-    
-  }
-  
-  /******************************************************************
     n()
     
     Returns the number of locations in the graph (n).
@@ -558,7 +548,6 @@ public class Map implements ObjectGraph<Location, Path>{
     Integers in array represent Locations in locations array that were visited to get the shortest route.
     ******************************************************************/
   public int[] getDirections(Location orig, Location dest){
-    //double[] tempDistances = new double[n]; //array to store calculated shortest distance to node from origin
     PriorityQueue<Location> q = new PriorityQueue<Location>(); //a priority queue that prioritizes by distance from origin
     int[] previous = new int[n]; //stores index of node visited before each node ie if previous[3] = 1, then we traveled from node 1 to node 3
     
@@ -567,7 +556,6 @@ public class Map implements ObjectGraph<Location, Path>{
     }
     
     orig.setDistance(0); //sets distance from origin to itself as 0
-    
     
     for(int i = 0; i < n; i++){
       q.enqueue(locations[i]); //adds all vertices to the queue
@@ -616,7 +604,11 @@ public class Map implements ObjectGraph<Location, Path>{
   /******************************************************************
     getDistanceBetween()
     
-    If location a is a successor of location b(there is a direct path between the two), returns the distance between the two locations
+    @return double
+    
+    If location a is a successor of location b(there is a direct path 
+    between the two), returns the distance between the two locations.
+    Helper method for getDirections.
     ******************************************************************/
   private double getDistanceBetween(Location a, Location b){
     //if b is a successor of a
@@ -630,10 +622,12 @@ public class Map implements ObjectGraph<Location, Path>{
   /******************************************************************
     directionsString()
     
+    @param Location orig, dest
+    @return String
+    
     Returns a string representation of the directions from one location to another.
     Calls getDirections() to get the integer representaion, then retrieves the names of the locaions
-    ******************************************************************/
-  
+    ******************************************************************/  
   public String directionsString(Location orig, Location dest){
     boolean hasStairs = false;
     boolean hasHills = false;
