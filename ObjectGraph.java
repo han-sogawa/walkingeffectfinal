@@ -1,15 +1,15 @@
 /*************************************************************************************
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author of this Class: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * 
- * File Name: ObjectGraph.java
- * Created: 12/8/15
- * Last Updated: 12/14/15
- * Known Bugs: None
- * 
- * Interface for a graph that uses objects to represent arcs between the nodes. 
- * Very similar to AdjMatGraph.
- *************************************************************************************/ 
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Hannah Murphy
+  * 
+  * File Name: ObjectGraph.java
+  * Created: 12/8/15
+  * Last Updated: 12/14/15
+  * Known Bugs: None
+  * 
+  * Interface for a graph that uses objects to represent arcs between the nodes. 
+  * Very similar to AdjMatGraph.
+  *************************************************************************************/ 
 
 import java.util.*;
 
@@ -54,14 +54,14 @@ public interface ObjectGraph<T, M>{
     Adds the same M to both arcs placements in the adjacency matrix
     ******************************************************************/
   public void addEdge(T vertex1, T vertex2, M edge);
- 
-    /******************************************************************
+  
+  /******************************************************************
     isArc()
     
     returns true if an arc exists between the two passed vertices
     ******************************************************************/
-   public boolean isArc(T srcVertex, T destVertex);
-
+  public boolean isArc(T srcVertex, T destVertex);
+  
   /******************************************************************
     isEdge()
     
@@ -128,11 +128,11 @@ public interface ObjectGraph<T, M>{
     and returns them onto a linked list. Returns empty list if there are no successors
     ******************************************************************/
   public LinkedList<T> getSuccessors(T loc);
-    
+  
   /******************************************************************
-   toString()
-   
-  Returns a string representation of the graph
-   ******************************************************************/
+    toString()
+    
+    Returns a string representation of the graph
+    ******************************************************************/
   public String toString();
 }

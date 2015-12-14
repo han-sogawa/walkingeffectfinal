@@ -1,6 +1,6 @@
 /************************************************************************************* 
   * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
-  * Author of this File: Mary DuBard, Alyssa Rivera
+  * Author of this File: Alyssa Rivera, Mary DuBard
   * 
   * File Name: ExplorePanel.java
   * Created: 12/8/15

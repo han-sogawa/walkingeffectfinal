@@ -1,14 +1,14 @@
 /************************************************************************************* 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author of this Class: Mary DuBard
- * 
- * File Name: WellesleyMap.java
- * Created: 12/12/15
- * Last Updated: 12/12/15
- * Known Bugs: None
- * 
- * Class that creates Map object specific to Wellesley
- *************************************************************************************/
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Mary DuBard
+  * 
+  * File Name: WellesleyMap.java
+  * Created: 12/12/15
+  * Last Updated: 12/12/15
+  * Known Bugs: None
+  * 
+  * Class that creates Map object specific to Wellesley
+  *************************************************************************************/
 import java.util.*;
 
 public class WellesleyMap extends Map{
@@ -16,14 +16,14 @@ public class WellesleyMap extends Map{
     //Create locations for Wellesley Map
     //Location(name, about, picture file)
     Location ksc = new Location("(1) Sports Center", "Nannerl O. Keohane Sports Center, named for Nannerl" 
-                                + "Keohane '61 (Wellesley president, 1981-1993), is the focal point for recreation and "
+                                  + "Keohane '61 (Wellesley president, 1981-1993), is the focal point for recreation and "
                                   + "fitness at Wellesley College.  The Sports Center is home to 14 varsity athletics teams,"
                                   + "a diverse physical education curriculum, and a wide variety of recreational, intramural, and "
                                   + "wellness activities for the entire College community.", "pic1ksc.jpg");
     Location resQ = new Location("(2) Res Quad", "The Quad is made up of four dorms: Beebe, Cazenove, Pomeroy, and Shafer Halls."
-                                + " The halls in the Quad are known for their convenient location and fun atmosphere. " 
-                                + "One of the trickiest things about the Quad can be simply remembering which building is which - "
-                                + "so something helpful to keep in mind is that the halls are in alphabetical order.", "pic2resQ.jpg");
+                                   + " The halls in the Quad are known for their convenient location and fun atmosphere. " 
+                                   + "One of the trickiest things about the Quad can be simply remembering which building is which - "
+                                   + "so something helpful to keep in mind is that the halls are in alphabetical order.", "pic2resQ.jpg");
     Location alum = new Location("(3) Alumnae Hall", "The Diana Chapman Walsh Alumnae Hall houses the Theatre Studies Department, "
                                    + "a 1300-seat auditorium, a black box theatre, and a ballroom for dance rehearsals, parties, and aerobics. "
                                    + "Many campus performances and events are held here.", "pic3alum.jpg");

@@ -1,15 +1,15 @@
 /************************************************************************************* 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author of this File: Hannah Murphy
- * 
- * File Name: Map.java
- * Created: 12/8/15
- * Last Updated: 12/12/15
- * Known Bugs: None
- * 
- * Creates an instance of a Map Object, which provides the functionality for the map 
- * represented in WalkingEffectGUI.java.
- *************************************************************************************/
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Hannah Murphy
+  * 
+  * File Name: Map.java
+  * Created: 12/8/15
+  * Last Updated: 12/12/15
+  * Known Bugs: None
+  * 
+  * Creates an instance of a Map Object, which provides the functionality for the map 
+  * represented in WalkingEffectGUI.java.
+  *************************************************************************************/
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -35,7 +35,7 @@ public class Map implements ObjectGraph<Location, Path>{
     Constructor
     Makes an empty Map object
     Sets n (number of locations) to 0
-   ******************************************************************/ 
+    ******************************************************************/ 
   public Map(){
     locations = new Location[DEFAULT_CAPACITY];
     paths = new Path[DEFAULT_CAPACITY][DEFAULT_CAPACITY];
@@ -64,11 +64,11 @@ public class Map implements ObjectGraph<Location, Path>{
   }
   
   /******************************************************************
-   getLocations()
-   
-   returns string array of all Location names
-   Used to populate the Map Key text fields in the application GUI
-   ******************************************************************/
+    getLocations()
+    
+    returns string array of all Location names
+    Used to populate the Map Key text fields in the application GUI
+    ******************************************************************/
   public String[] getLocations(){
     String[] locs = new String[n];
     for(int i = 0; i < n; i++){
@@ -78,11 +78,11 @@ public class Map implements ObjectGraph<Location, Path>{
   }
   
   /******************************************************************
-   getLocationsCombo()
-   
-   returns string array of all Location names
-   Used to populate the Combo Boxes in the application GUI, adds a "No location selected." option 
-   ******************************************************************/
+    getLocationsCombo()
+    
+    returns string array of all Location names
+    Used to populate the Combo Boxes in the application GUI, adds a "No location selected." option 
+    ******************************************************************/
   public String[] getLocationsCombo(){
     
     String[] locs = new String[n+1];
@@ -94,19 +94,19 @@ public class Map implements ObjectGraph<Location, Path>{
   }
   
   /******************************************************************
-   getAllVertices()
-   
-   returns the array of Locations in the Map
-   ******************************************************************/
+    getAllVertices()
+    
+    returns the array of Locations in the Map
+    ******************************************************************/
   public Location[] getAllVertices(){
     return locations;
   }
   
   /******************************************************************
-   findLocation()
-   
-   Given the name of the location, return the corresponfding Location Object
-   ******************************************************************/
+    findLocation()
+    
+    Given the name of the location, return the corresponfding Location Object
+    ******************************************************************/
   public Location findLocation(String loc){
     for(int i = 0; i < n; i++){
       if(locations[i].getName().equalsIgnoreCase(loc))
@@ -145,14 +145,14 @@ public class Map implements ObjectGraph<Location, Path>{
     does nothing if vertex is not in map
     LOCATION PARAMETER
     ******************************************************************/
-   public void removeVertex (Location vertex) {
+  public void removeVertex (Location vertex) {
     int index = getIndex(vertex);
     if (index != NOT_FOUND) {
       removeVertex(index);
     }
   } 
-   
-   /******************************************************************
+  
+  /******************************************************************
     removeVertex()
     
     removes the location at the given index from the map. updates adjacency matrix (paths)
@@ -267,13 +267,13 @@ public class Map implements ObjectGraph<Location, Path>{
     returns true if a path exists between the two passed locations
     LOCATION PARAMETERS
     ******************************************************************/
-   public boolean isArc(Location srcVertex, Location destVertex) {
+  public boolean isArc(Location srcVertex, Location destVertex) {
     int src = getIndex(srcVertex);
     int dest = getIndex(destVertex);
     return src != NOT_FOUND && dest != NOT_FOUND && paths[src][dest] != null;
   }
-   
-   /******************************************************************
+  
+  /******************************************************************
     isArc()
     
     returns true if a path exists between the two passed locations
@@ -286,7 +286,7 @@ public class Map implements ObjectGraph<Location, Path>{
     return paths[srcIndex][destIndex] != null;
   }
   
-   /******************************************************************
+  /******************************************************************
     isEdge()
     
     returns true if a path exists between the two passed locations (both ways)
@@ -304,8 +304,8 @@ public class Map implements ObjectGraph<Location, Path>{
     returns true if a path contains hills
     ******************************************************************/
   public boolean hillsExist(int srcVertex, int destVertex) {
-   Path p = getArc(srcVertex, destVertex);
-   return p.hasHills();
+    Path p = getArc(srcVertex, destVertex);
+    return p.hasHills();
   }
   
   /******************************************************************
@@ -314,8 +314,8 @@ public class Map implements ObjectGraph<Location, Path>{
     returns true if a path contains stairs
     ******************************************************************/
   public boolean stairsExist(int src, int dest) {
-   Path p = getArc(src, dest);
-   return p.hasStairs();
+    Path p = getArc(src, dest);
+    return p.hasStairs();
   }
   
   
@@ -330,10 +330,10 @@ public class Map implements ObjectGraph<Location, Path>{
     if(isArc(src, dest)){
       return paths[src][dest];
     }
-       return null;
-       }
+    return null;
+  }
   
-   /******************************************************************
+  /******************************************************************
     getPath()
     
     returns the path object between the specified locations
@@ -344,8 +344,8 @@ public class Map implements ObjectGraph<Location, Path>{
     if(isArc(src, dest)){
       return paths[src][dest];
     }
-       return null;
-       }
+    return null;
+  }
   
   
   
@@ -552,11 +552,11 @@ public class Map implements ObjectGraph<Location, Path>{
   /////////////////////GETDIRECTIONS AND RELATED METHODS//////////////////////
   
   /******************************************************************
-   getDirections()
-   
-   Returns an integer matrix that provides directions for shortest path between Location a and Location b by implementing Dijktra's algorithm.
-   Integers in array represent Locations in locations array that were visited to get the shortest route.
-   ******************************************************************/
+    getDirections()
+    
+    Returns an integer matrix that provides directions for shortest path between Location a and Location b by implementing Dijktra's algorithm.
+    Integers in array represent Locations in locations array that were visited to get the shortest route.
+    ******************************************************************/
   public int[] getDirections(Location orig, Location dest){
     //double[] tempDistances = new double[n]; //array to store calculated shortest distance to node from origin
     PriorityQueue<Location> q = new PriorityQueue<Location>(); //a priority queue that prioritizes by distance from origin
@@ -614,10 +614,10 @@ public class Map implements ObjectGraph<Location, Path>{
   }
   
   /******************************************************************
-   getDistanceBetween()
-   
-   If location a is a successor of location b(there is a direct path between the two), returns the distance between the two locations
-   ******************************************************************/
+    getDistanceBetween()
+    
+    If location a is a successor of location b(there is a direct path between the two), returns the distance between the two locations
+    ******************************************************************/
   private double getDistanceBetween(Location a, Location b){
     //if b is a successor of a
     LinkedList<Location> successors = getSuccessors(a);
@@ -628,12 +628,12 @@ public class Map implements ObjectGraph<Location, Path>{
   }
   
   /******************************************************************
-   directionsString()
-   
-   Returns a string representation of the directions from one location to another.
-   Calls getDirections() to get the integer representaion, then retrieves the names of the locaions
-   ******************************************************************/
-
+    directionsString()
+    
+    Returns a string representation of the directions from one location to another.
+    Calls getDirections() to get the integer representaion, then retrieves the names of the locaions
+    ******************************************************************/
+  
   public String directionsString(Location orig, Location dest){
     boolean hasStairs = false;
     boolean hasHills = false;
@@ -650,11 +650,11 @@ public class Map implements ObjectGraph<Location, Path>{
       temp = directions[temp];
       System.out.println("temp (inside loop): " + temp);
       if(previous != -1 && temp != -1){
-      if(stairsExist(previous, temp))
-        hasStairs = true;
-      if(hillsExist(previous, temp))
-        hasHills = true;
-      //System.out.println("Checking path between temp and previous " + previous + getVertex(temp));
+        if(stairsExist(previous, temp))
+          hasStairs = true;
+        if(hillsExist(previous, temp))
+          hasHills = true;
+        //System.out.println("Checking path between temp and previous " + previous + getVertex(temp));
       }
     }
     
@@ -667,11 +667,11 @@ public class Map implements ObjectGraph<Location, Path>{
       distance += getArc(findLocation(loc1), findLocation(loc2)).getDistance();
       result += loc1 + ". \nWalk towards: ";
       if(loc2.equals(dest.getName()))
-           result+= loc2 + ". \nYou have arrived!";
+        result+= loc2 + ". \nYou have arrived!";
       loc1 = loc2;       
     }
     result += "\nYour trip is " + roundTwoDecimals(distance) + " miles and approximately " + calculateTime(distance) + " minutes.";
-
+    
     
     if(hasStairs && hasHills)
       result += " \nThis path contains stairs and hills.";
@@ -697,10 +697,10 @@ public class Map implements ObjectGraph<Location, Path>{
   
   //////////////////////////TOSTRING///////////////////////////////
   /******************************************************************
-   toString()
-   
-  Returns a string representation of the graph
-   ******************************************************************/
+    toString()
+    
+    Returns a string representation of the graph
+    ******************************************************************/
   public String toString() {
     if (n == 0) {
       return "Graph is empty";
@@ -737,9 +737,9 @@ public class Map implements ObjectGraph<Location, Path>{
   }
   
   /******************************************************************
-   testing
-   
-   ******************************************************************/
+    testing
+    
+    ******************************************************************/
   public static void main(String[] args){
     Map m = new Map();
     

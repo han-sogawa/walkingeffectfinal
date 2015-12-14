@@ -1,14 +1,14 @@
 /************************************************************************************* 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author of this Class: Mary DuBard
- * 
- * File Name: WalkingEffectGUI.java
- * Created: 12/8/15
- * Last Updated: 12/14/15
- * Known Bugs: None
- * 
- * Class that creates the Walking Effect GUI
- *************************************************************************************/
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Mary DuBard
+  * 
+  * File Name: WalkingEffectGUI.java
+  * Created: 12/8/15
+  * Last Updated: 12/14/15
+  * Known Bugs: None
+  * 
+  * Class that creates the Walking Effect GUI
+  *************************************************************************************/
 
 import java.awt.*;
 import javax.swing.*;

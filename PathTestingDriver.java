@@ -1,26 +1,26 @@
 /************************************************************************************* 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author of this Class: Alyssa Rivera
- * 
- * File Name: PathTestingDriver.java
- * Created: 12/8/15
- * Last Updated: 12/8/15
- * Known Bugs: None
- * 
- * Class with main method to test Path
- *************************************************************************************/
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Alyssa Rivera
+  * 
+  * File Name: PathTestingDriver.java
+  * Created: 12/8/15
+  * Last Updated: 12/8/15
+  * Known Bugs: None
+  * 
+  * Class with main method to test Path
+  *************************************************************************************/
 public class PathTestingDriver{
   public static void main (String[] args){
-  
-  Path a = new Path (5, false, true);
-  System.out.println("\nA: " +a);
-  
-  Path b = new Path (1, true, false);
-  System.out.println("\nB: " + b);
-  
-  System.out.println("\nA compared to B (-4): " + a.compareTo(b));
-  System.out.println("B compared to A (4): " + b.compareTo(a));
-  //System.out.println("A compared to 'Bunny' (MIN_VALUE): " + a.compareTo("bunny"));
-  
+    
+    Path a = new Path (5, false, true);
+    System.out.println("\nA: " +a);
+    
+    Path b = new Path (1, true, false);
+    System.out.println("\nB: " + b);
+    
+    System.out.println("\nA compared to B (-4): " + a.compareTo(b));
+    System.out.println("B compared to A (4): " + b.compareTo(a));
+    //System.out.println("A compared to 'Bunny' (MIN_VALUE): " + a.compareTo("bunny"));
+    
   }
 }
