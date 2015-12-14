@@ -22,7 +22,7 @@ public class WalkingEffectGUI{
     //creates a tabbed pane
     JTabbedPane tp = new JTabbedPane();
     
-    //creates Map object
+    //creates Map object of WellesleyMap
     Map map = new WellesleyMap();
     
     //adds four tabs

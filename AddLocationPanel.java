@@ -68,12 +68,12 @@ public class AddLocationPanel extends JPanel{
     
     try {
       //create the font to use. Specify the size!
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(20f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
-      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")));
+      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -93,9 +93,13 @@ public class AddLocationPanel extends JPanel{
     //creates comboLocs array and stores into dropdown menus, with "No Location" option
     comboLocs = instanceMap.getLocationsCombo();
     nearbyLoc1Combo = new JComboBox(comboLocs);
+    nearbyLoc1Combo.setPreferredSize(new Dimension (250, 50));
+    nearbyLoc1Combo.setMaximumSize(nearbyLoc1Combo.getPreferredSize());
     nearbyLoc1Combo.setFont(keyFont);
     nearbyLoc2Combo = new JComboBox(comboLocs);
     nearbyLoc2Combo.setFont(keyFont);
+    nearbyLoc2Combo.setPreferredSize(new Dimension (250, 50));
+    nearbyLoc2Combo.setMaximumSize(nearbyLoc2Combo.getPreferredSize());
     
     //initializes label for location name
     enterName = new JLabel("Name of New Location: ");
@@ -199,7 +203,7 @@ public class AddLocationPanel extends JPanel{
     
     //adds map image
     try{
-      BufferedImage myPicture = ImageIO.read(new File("map.png"));
+      BufferedImage myPicture = ImageIO.read(new File("images/map.png"));
       ImageIcon pic = new ImageIcon(myPicture);
       Image img = pic.getImage();
       BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);

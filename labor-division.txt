@@ -1,13 +1,13 @@
 Division of Labor
 
-Alyssa- ExplorePanel, Location, Map, Path
-Hannah- AddLocationPanel, Map, ObjectGraph
-Mary- AboutPanel, HomePanel, Map, WalkingEffectGUI, WellesleyMap
+Alyssa- ExplorePanel, Location, Map, Path, MinHeap
+Hannah- AddLocationPanel, Map, ObjectGraph, MinHeap
+Mary- AboutPanel, FindRoutePanel, Map, WalkingEffectGUI, WellesleyMap, MinHeap
 
-All three of us collaborated to implement Dijkstra’s Algorithm for the getDirections() method. We also all worked on the getDirectionsString() method. Most of the coding was done collaboratively, as we would meet up and work together. Therefore, all three of us worked together to debug when problems came up.
+All three of us collaborated to implement Dijkstra’s Algorithm for the getDirections() method. We also all worked on the getDirectionsString() method. In addition, when using the PriorityQueue for getDirections(), it was implemented in class with a MaxHeap, but we needed a MinHeap. We implemented our own MinHeap version to have a correct PriorityQueue. Also, MinHeap only heapified when an element was added or removed; since we were updated the values of our elements, we had to write a new method heapify that would reorder whenever it was called, not only when an element was added or removed. Other than these classes and methods, most of the coding was done collaboratively, as we would meet up and work together. Therefore, all three of us worked together to debug when problems came up.
 
-Hannah did most of the formatting and basics in the Map class. She also implemented the AddLocationPanel, which included her making sure the new location added on the Home and Explore tabs. She also created the ObjectGraph interface for the Map Class.
+Hannah did most of the formatting and basics in the Map class. She also implemented the AddLocationPanel, which included her making sure the new location added on the Find Route and Explore tabs. She also created the ObjectGraph interface for the Map Class.
 
 Alyssa created the ExplorePanel, Location, and Path class. She also found and implemented the fonts for every tab, formatted each tab’s background, and created the logo.
 
-Mary created the AboutPanel and HomePanel. The HomePanel included making sure the string formatting of the directions was correct and calculating the distance. She created the basic WalkingEffectGUI and the WellesleyMap class, inputting the information for each Location and Path. 
+Mary created the AboutPanel and FindRoutePanel. The FindRoutePanel included making sure the string formatting of the directions was correct and calculating the distance. She created the basic WalkingEffectGUI and the WellesleyMap class, inputting the information for each Location and Path. 
