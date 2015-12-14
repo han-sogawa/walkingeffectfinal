@@ -114,7 +114,7 @@ public class AddLocationPanel extends JPanel{
     //initializes labels for combo boxes
     nearbyLoc1 = new JLabel("Nearby Location 1: ");
     nearbyLoc1.setFont(customFont);
-    nearbyLoc2 = new JLabel("(Optional) Nearby Location 2: ");
+    nearbyLoc2 = new JLabel("Nearby Location 2 (Optional): ");
     nearbyLoc2.setFont(customFont);
     
     //initializes labels for distances
@@ -154,12 +154,10 @@ public class AddLocationPanel extends JPanel{
     aboutInfo = new JTextArea();
     aboutInfo.setFont(keyFont);
     aboutInfo.setPreferredSize(new Dimension(30, 50));
-    //aboutInfo.setColumns(25);
     aboutInfo.setMaximumSize(aboutInfo.getPreferredSize());
     aboutInfo.setLineWrap(true);
     aboutInfo.setAlignmentY(CENTER_ALIGNMENT);
     aboutScroll = new JScrollPane (aboutInfo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    //JScrollPane  = new JScrollPane(keyText);
     
     //creates submit button
     add = new JButton("Add Location");
@@ -171,7 +169,6 @@ public class AddLocationPanel extends JPanel{
     navi = new JPanel();
     navi.setBackground(BACKGROUND);
     navi.setLayout(new BoxLayout(navi, BoxLayout.Y_AXIS));
-    //navi.add(Box.createRigidArea(new Dimension(0, 50)));
     navi.add(enterName);
     navi.add(locNamePanel);
     
@@ -182,7 +179,6 @@ public class AddLocationPanel extends JPanel{
     navi.add(hasHillsCheck1);
     navi.add(hasStairsCheck1);
     
-    //navi.add(Box.createRigidArea(new Dimension(0, 10)));
     navi.add(nearbyLoc2);
     navi.add(nearbyLoc2Combo);
     navi.add(dist2);
