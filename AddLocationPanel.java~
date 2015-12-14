@@ -16,6 +16,7 @@ public class AddLocationPanel extends JPanel{
   private JCheckBox hasHillsCheck1, hasStairsCheck1, hasHillsCheck2, hasStairsCheck2;
   private Map instanceMap;
   private String[] locs, comboLocs;
+  private final Color BACKGROUND = new Color(138, 226, 255);
   
   public void setKeyText(){
     for(int i = 0; i < locs.length; i++){
@@ -27,6 +28,9 @@ public class AddLocationPanel extends JPanel{
   public AddLocationPanel(Map map){
     instanceMap = map;
     setLayout (new BorderLayout());
+    
+    //backgroundColor
+    this.setBackground(BACKGROUND);
     
         //set font to default as helvetica
     Font headerFont = new Font("Helvetica", Font.PLAIN, 20);
@@ -64,6 +68,7 @@ public class AddLocationPanel extends JPanel{
     enterName = new JLabel("Name of New Location: ");
     enterName.setFont(customFont);
     JPanel locNamePanel = new JPanel();
+    locNamePanel.setBackground(BACKGROUND);
     locName = new JTextField(20);
     locNamePanel.add(locName);
     
@@ -74,24 +79,30 @@ public class AddLocationPanel extends JPanel{
     nearbyLoc2.setFont(customFont);
     
     JPanel distField1Panel = new JPanel();
+    distField1Panel.setBackground(BACKGROUND);
     dist1 = new JLabel("Distance to Location 1 (miles): ");
     dist1.setFont(customFont);
     distField1 = new JTextField(10);
     distField1Panel.add(distField1);
     hasHillsCheck1 = new JCheckBox("The Path to Location 1 has Hills");
     hasHillsCheck1.setFont(keyFont);
+    hasHillsCheck1.setBackground(BACKGROUND);
     hasStairsCheck1 = new JCheckBox("The Path to Location 1 has Stairs");
     hasStairsCheck1.setFont(keyFont);
+    hasStairsCheck1.setBackground(BACKGROUND);
     
     JPanel distField2Panel = new JPanel();
+    distField2Panel.setBackground(BACKGROUND);
     dist2 = new JLabel("Distance to Location 2 (miles): ");
     dist2.setFont(customFont);
     distField2 = new JTextField(20);
     distField2Panel.add(distField2);
     hasHillsCheck2 = new JCheckBox("The Path to Location 2 has Hills");
     hasHillsCheck2.setFont(keyFont);
+    hasHillsCheck2.setBackground(BACKGROUND);
     hasStairsCheck2 = new JCheckBox("The Path to Location 2 has Stairs");
     hasStairsCheck2.setFont(keyFont);
+    hasStairsCheck2.setBackground(BACKGROUND);
     
     //creates submit button
     add = new JButton("Add Location");
@@ -101,6 +112,7 @@ public class AddLocationPanel extends JPanel{
     
     //Creates panel for navigation options
     navi = new JPanel();
+    navi.setBackground(BACKGROUND);
     navi.setLayout(new BoxLayout(navi, BoxLayout.Y_AXIS));
     navi.add(Box.createRigidArea(new Dimension(0, 50)));
     navi.add(enterName);
@@ -126,6 +138,7 @@ public class AddLocationPanel extends JPanel{
     
     //creates panel for map and key
     mapPic = new JPanel();
+    mapPic.setBackground(BACKGROUND);
     mapPic.setLayout(new BoxLayout(mapPic, BoxLayout.X_AXIS));
     mapPic.add(Box.createRigidArea(new Dimension(100, 0)));
     
