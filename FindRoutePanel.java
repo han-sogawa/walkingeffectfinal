@@ -154,7 +154,7 @@ public class FindRoutePanel extends JPanel{
     
     //adds map image to map panel
     try{
-      BufferedImage myPicture = ImageIO.read(new File("images/map.png"));
+      BufferedImage myPicture = ImageIO.read(new File("map.png"));
       ImageIcon pic = new ImageIcon(myPicture);
       Image img = pic.getImage();
       BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);

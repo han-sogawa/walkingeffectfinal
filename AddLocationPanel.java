@@ -341,9 +341,9 @@ public class AddLocationPanel extends JPanel{
           keyText.append(locs[i]);
         }
         
-        //resets HomePanel and ExplorePanel location lists
-        HomePanel.setKeyText(locs);
-        HomePanel.setComboBoxes(locs);
+        //resets FindRoutePanel and ExplorePanel location lists
+        FindRoutePanel.setKeyText(locs);
+        FindRoutePanel.setComboBoxes(locs);
         ExplorePanel.setComboBox(locs);
         ExplorePanel.setKeyText(locs);
       }else{
