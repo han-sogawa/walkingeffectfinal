@@ -114,7 +114,7 @@ public class AddLocationPanel extends JPanel{
     //initializes labels for combo boxes
     nearbyLoc1 = new JLabel("Nearby Location 1: ");
     nearbyLoc1.setFont(customFont);
-    nearbyLoc2 = new JLabel("Nearby Location 2: ");
+    nearbyLoc2 = new JLabel("(Optional) Nearby Location 2: ");
     nearbyLoc2.setFont(customFont);
     
     //initializes labels for distances
