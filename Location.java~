@@ -1,10 +1,15 @@
+
 /**
+ * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+ * Author of this class: Alyssa Rivera
+ * 
+ * Created: December 8th, 2015
+ * Last Modified: December 10th, 2015
+ * Known Bugs: none
+ * 
  * Represents a location on Wellesley's campus, including the following information:
  * name, description, image of the place
- * Author: Alyssa Rivera
- * Created: December 8th, 2015
- * Last Modified: December 8th, 2015
- * Known Bugs: none
+ * Necessary for the Map class
  */ 
 
 import java.awt.*;

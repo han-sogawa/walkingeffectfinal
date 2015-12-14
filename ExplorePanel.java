@@ -4,7 +4,7 @@
   * 
   * File name: ExplorePanel.java
   * Date Created: 12/8/15
-  * Last Updated: 12/11/15
+  * Last Updated: 12/14/15
   * Known Bugs: None
   * 
   * Class that contains Panel elements for the Explore tab of the Walking Effect GUI
@@ -14,8 +14,6 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import java.util.Scanner;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -76,7 +74,6 @@ public class ExplorePanel extends JPanel {
     
     //sets font of text
     try{
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
       defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
       boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("fontBold.ttf")).deriveFont(20f);
       keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
@@ -214,17 +211,11 @@ public class ExplorePanel extends JPanel {
   private class ExploreButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
       //initializes instance variables
-      Font headerFont = null;
-      Font defaultFont = null;
       Font  boldFont = null;
-      Font keyFont = null;
       
       //sets fonts for when the about infor is updated
       try{
-        headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
-        defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
         boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("fontBold.ttf")).deriveFont(20f);
-        keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
       } catch (FontFormatException x){
         System.out.println ("font format exception");
       } catch (IOException i){

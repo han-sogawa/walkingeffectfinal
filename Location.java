@@ -1,5 +1,4 @@
-
-/**
+/*************************************************************************************
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
  * Author of this class: Alyssa Rivera
  * 
@@ -10,7 +9,7 @@
  * Represents a location on Wellesley's campus, including the following information:
  * name, description, image of the place
  * Necessary for the Map class
- */ 
+ *************************************************************************************/ 
 
 import java.awt.*;
 import javax.imageio.ImageIO;
@@ -21,16 +20,19 @@ public class Location implements Comparable<Location> {
 
   private String name, about;
   private Image picture;
-  private double distance;
+  private double distance; //used for getDirections map method
   
-  /**
-   * Creates a Location object with a name, about, and picture
-   * Imports the picture from the given fileName
-   * 
-   * @param n         name of the Location
-   * @param a         about information of the Location
-   * @param fileName  location of the picture of the Location
-   */ 
+  /******************************************************************
+    Location(String n, String a, String fileName)
+    
+    @param n         name of the Location
+    @param a         about information of the Location
+    @param fileName  location of the picture of the Location
+     
+    Creates a Location object with a name, about, and picture.
+    Imports the picture from the given fileName.
+    Sets distance to 0.0.
+   ******************************************************************/ 
   public Location(String n, String a, String fileName){
     name = n;
     about = a;
@@ -39,17 +41,18 @@ public class Location implements Comparable<Location> {
       picture = ImageIO.read(new File (fileName));
     }
     catch(IOException e){
-      //System.out.println("Picture could not be imported in constructor");
-      //throw e;
+      System.out.println(e);
     }
   }
   
-    /**
-   * Creates a Location object with a name, an empty about, and a Wellesley logo as the image
-   * distance 0.0
-   * 
-   * @param n   name of the Location
-   */
+   /******************************************************************
+    Location(String n)
+    
+    @param n   name of the Location
+    
+    Creates a Location object with a name, an empty about, and a 
+    Wellesley logo as the image. Sets distance to 0.0.
+    ******************************************************************/
   public Location (String n){
     name = n;
     about = " ";
@@ -62,34 +65,36 @@ public class Location implements Comparable<Location> {
     }
   }  
   
-  /**
-   * Returns a String representation of the Location, including the name, about, and picture
-   * 
-   * @return   the String representation
-   */ 
+  /******************************************************************
+    toString()
+    
+    @return   the String representation 
+    
+    Returns a String representation of the Location.
+    Includes the name.
+   ******************************************************************/ 
   public String toString(){
-    return name; //+ "\n" + about + "\n" + picture;
+    return name; 
   }
   
-  /**
-   * Compares two Location objects
-   * 
-   * @param that  Location to compare to 
-   * @return      0 if distances equal, -1 if this smaller than other, 1 if this bigger than other
-   */ 
+  /******************************************************************
+    compareTo(Location that)
+    
+    @param  that  Location to compare to
+    @return       0 if distances equal, -1 if this smaller than other, 1 if this bigger than other
+    
+    Compares two Location objects. 
+   ******************************************************************/ 
   public int compareTo(Location that){
-
       if(this.getDistance() == that.getDistance())
         return 0;
       else if (this.getDistance()<that.getDistance())
         return -1;
-      else
-        return 1;
-  
+      return 1;
   }
   
   
-  /****Getter Methods****/
+  /***************Getter Methods***************/
   public String getName(){
   return name;
   }
@@ -106,7 +111,7 @@ public class Location implements Comparable<Location> {
   return distance;
   }
   
-  /****Setter Methods****/
+  /***************Setter Methods***************/
   public void setName(String n){
   name = n;
   }
@@ -124,9 +129,7 @@ public class Location implements Comparable<Location> {
       picture = ImageIO.read(new File (fileName));
     }
     catch(IOException e){
-      System.out.println("Picture could not be imported in setPicture()");
-      //throw e;
+      System.out.println("Picture could not be imported in setPicture().");
     }
-  }
-  
+  }  
 }
