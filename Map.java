@@ -1,6 +1,6 @@
 /************************************************************************************* 
   * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
-  * Author of this File: Hannah Murphy
+  * Author of this File: Mary DuBard, Hannah Murphy, Alyssa Rivera
   * 
   * File Name: Map.java
   * Created: 12/8/15

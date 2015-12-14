@@ -100,13 +100,10 @@ public class AboutPanel extends JPanel{
     //Creates centered paragraph about Walking Effect
     JTextPane paragraph = new JTextPane();
     paragraph.setBackground(BACKGROUND);
-    //paragraph.setMaximumSize(paragraph.getPreferredSize());
     paragraph.setText("The Walking Effect is an application created to make navigating Wellesley’s campus easier for anyone, "
                         + "from students to visitors. \nUsers of the Walking Effect will be able to simply choose two locations "
                         + "on Wellesley’s campus and the Walking Effect \nwill return the shortest route, including directions, "
                         + "distance, and time.");
-    /* paragraph.setBounds( 0, 0, 200, 200 );
-     paragraph.setPreferredSize( new Dimension( 200, 200 ) );*/
     paragraph.setFont(customFont);
     paragraph.setEditable(false);
     StyledDocument doc = paragraph.getStyledDocument();
