@@ -40,8 +40,8 @@ public class AddLocationPanel extends JPanel{
     try {
       //create the font to use. Specify the size!
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(20f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(17f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")));
