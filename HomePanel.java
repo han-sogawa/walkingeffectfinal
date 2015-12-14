@@ -1,6 +1,6 @@
 /* 
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this Class: Mary DuBard
+ * Writer for this file: Mary DuBard
  * 
  * File name: HomePanel.java
  * Date Created: 12/8/15
@@ -18,7 +18,7 @@ import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
-public class HomePanel extends JPanel implements ComponentListener{
+public class HomePanel extends JPanel{
   private JLabel header, origin, destination;
   private JPanel navi, map;
   private static JComboBox orig, dest;
@@ -28,49 +28,70 @@ public class HomePanel extends JPanel implements ComponentListener{
   private String[] locs;
   private Map m;
   
-  private final Color BACKGROUND = new Color(138, 226, 255);
-  private final Color DIRECTIONS_BACKGROUND = new Color (204, 242, 255);
+  private final Color BACKGROUND = new Color(138, 226, 255); //stores background color for main panel(s)
+  private final Color DIRECTIONS_BACKGROUND = new Color (204, 242, 255); //stores background color for directions
   
+  /**
+   * setKeyText(String[] locs)
+   * @param String array of location names
+   * 
+   * Sets the content of the Map Key
+   * Used when user adds a new location
+   **/ 
   public static void setKeyText(String[] locs){
-    keyText.setText("");
-    keyText.append("Map Key: ");
-    //keyText.setRows(1);
+    keyText.setText("Map Key: "); //resets text to title the key
+    
+    //Adds locations to key
     for(int i = 0; i < locs.length; i++){
-      keyText.append("\n");
+      keyText.append("\n"); 
       keyText.append(locs[i]);
     }
-    //keyText.setFont(keyFont);
   }
   
+  /**
+   * setComboBoxes(String[] locs)
+   * @param String array of location names
+   * 
+   * Sets the content for the dropdown menu for origin and destination
+   * Used when user adds a new location
+   **/ 
   public static void setComboBoxes(String[] locs){
-    orig.removeAllItems();
+    orig.removeAllItems(); //resets origin dropdown
+    //adds back new locations
     for(int i = 0; i < locs.length; i++){
       orig.addItem(locs[i]);
     }
     
-    dest.removeAllItems();
+    dest.removeAllItems(); //resets destination dropdown
+    //adds back new locations
     for(int i = 0; i < locs.length; i++){
       dest.addItem(locs[i]);
     }
-    //orig.addItem(locs);
-    //keyText.setFont(keyFont);
   }
   
+  /**
+   * HomePanel Constructor
+   * @param Map object
+   * 
+   * Creates HomePanel
+   **/ 
   public HomePanel(Map ma){
     
     this.setBackground(BACKGROUND);
     
-    //on load reload locs?
-    m = ma;
-    setLayout (new BorderLayout());
+    m = ma; 
+    setLayout(new BorderLayout());
     
+    /**
+     * Code for Font style
+     **/ 
     //set font to default as helvetica
     Font headerFont = new Font("Helvetica", Font.PLAIN, 18);
     Font customFont = new Font("Helvetica", Font.PLAIN, 15);
     Font keyFont = new Font("Helvetica", Font.PLAIN, 13);
     
     try {
-      //create the font to use. Specify the size!
+      //Creates the font to use
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
       customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
       keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
@@ -85,13 +106,16 @@ public class HomePanel extends JPanel implements ComponentListener{
       e.printStackTrace();
     }
     
-    
+    /**
+     * Creates content for HomePanel
+     **/
+    //Stores content into header JLabel
     header = new JLabel("\nPick your origin and destination below to receive the quickest path between them!", SwingConstants.CENTER);
     header.setFont(headerFont);
     
-    locs = m.getLocations(); 
+    locs = m.getLocations(); //stores map locations into locs array
     
-    //initialize combo boxes, using String array ratings for values
+    //initialize combo boxes, using WellesleyMap's initial locations
     orig = new JComboBox(locs);
     orig.setFont(keyFont);
     dest = new JComboBox(locs);
@@ -108,7 +132,7 @@ public class HomePanel extends JPanel implements ComponentListener{
     submit.addActionListener(new submitListener());
     submit.setFont(customFont);
     
-    //Creates panel for navigation options
+    //Creates panel for navigation options and stores content
     navi = new JPanel();
     navi.setBackground(BACKGROUND);
     navi.setLayout(new BoxLayout(navi, BoxLayout.Y_AXIS));
@@ -127,9 +151,8 @@ public class HomePanel extends JPanel implements ComponentListener{
     map = new JPanel();
     map.setBackground(BACKGROUND);
     map.setLayout(new BoxLayout(map, BoxLayout.X_AXIS));
-    //map.add(Box.createRigidArea(new Dimension(100, 0)));
     
-    //adds map image
+    //adds map image to map panel
     try{
       BufferedImage myPicture = ImageIO.read(new File("map.png"));
       ImageIcon pic = new ImageIcon(myPicture);
@@ -145,23 +168,23 @@ public class HomePanel extends JPanel implements ComponentListener{
       System.out.println(io);
     }
     
+    //creates map key
     keyText = new JTextArea(12, 20);
     keyText.setMaximumSize(keyText.getPreferredSize());
-    //keyText.setEditable(false);
+    keyText.setEditable(false);
     keyText.append("Map Key: ");
-    //keyText.setRows(1);
     for(int i = 0; i < locs.length; i++){
       keyText.append("\n");
       keyText.append(locs[i]);
     }
     keyText.setFont(keyFont);
     
+    //makes map key scrollable and adds to map panel
     JScrollPane jp = new JScrollPane(keyText);
     jp.setMaximumSize(keyText.getPreferredSize());
     map.add(jp);
     
-    
-    //Initializes footer
+    //Initializes footer to hold directions
     directions = new JTextPane();
     directions.setBackground(DIRECTIONS_BACKGROUND);
     directions.setEditable(false);
@@ -172,6 +195,7 @@ public class HomePanel extends JPanel implements ComponentListener{
     StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
     doc.setParagraphAttributes(0, doc.getLength(), center, false);
     
+    //Makes directions scrollable
     JScrollPane jp2 = new JScrollPane(directions);
     jp2.setMaximumSize(directions.getPreferredSize());
     
@@ -180,30 +204,29 @@ public class HomePanel extends JPanel implements ComponentListener{
     add(navi, BorderLayout.WEST);
     add(map, BorderLayout.EAST);
     add(directions, BorderLayout.SOUTH);
-    
   }
   
-  public void componentHidden(ComponentEvent e){}
-    public void componentMoved(ComponentEvent e){}
-    public void componentResized(ComponentEvent e){}
-    //rewrite the key when tab shown again
-    public void componentShown(ComponentEvent e){
-    locs = m.getLocations(); 
-      keyText.replaceRange("Map Key: ", 0, keyText.getLineCount()-1);
-      //keyText.setRows(1);
-      for(int i = 0; i < locs.length; i++){
-        keyText.append("\n");
-        keyText.append(locs[i]);
-      }
-    }
-  
+  /**
+   * submitListener Class
+   * 
+   * Used when user clicks on the submit button
+   **/ 
   private class submitListener implements ActionListener{
+    /**
+     * actionPerformed(ActionEvent event)
+     * @param ActionEvent
+     * 
+     * When user clicks on submit button, gets the directions from origin to destination
+     * and puts the String in the directions JTextPane at bottom of HomePanel
+     **/ 
     public void actionPerformed(ActionEvent event){
-      //save combo box values as a string, if no value was chosen, the default value is 1
+      //Save combobox values as a string
       String origString = orig.getSelectedItem().toString();
       String destString = dest.getSelectedItem().toString();
-     
-      directions.setText("Directions from " + origString + " to " + destString + ". " + "\n" + m.directionsString(m.findLocation(origString), m.findLocation(destString)));
+      
+      //Sets content for directions JTextPane
+      directions.setText("Directions from " + origString + " to " + destString + ". " + "\n" 
+                           + m.directionsString(m.findLocation(origString), m.findLocation(destString)));
     }
   }
 }

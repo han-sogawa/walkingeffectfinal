@@ -34,7 +34,7 @@ public class AboutPanel extends JPanel{
     Font customFont = new Font("Helvetica", Font.PLAIN, 18);
     
     try {
-      //create the font to use. Specify the size!
+      //Creates the font to use. Specify the size!
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(30f);
       footerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
       customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(23f);
