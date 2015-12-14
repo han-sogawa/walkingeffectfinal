@@ -92,9 +92,9 @@ public class FindRoutePanel extends JPanel{
     
     try {
       //Creates the font to use
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(20f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(30f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(22f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")));
@@ -188,7 +188,7 @@ public class FindRoutePanel extends JPanel{
     directions = new JTextPane();
     directions.setBackground(DIRECTIONS_BACKGROUND);
     directions.setEditable(false);
-    directions.setText("<Directions here>");
+    directions.setText("<Directions Here>");
     directions.setFont(customFont);
     StyledDocument doc = directions.getStyledDocument();
     SimpleAttributeSet center = new SimpleAttributeSet();

@@ -92,12 +92,12 @@ public class FindRoutePanel extends JPanel{
     
     try {
       //Creates the font to use
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(20f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
-      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")));
+      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -154,7 +154,7 @@ public class FindRoutePanel extends JPanel{
     
     //adds map image to map panel
     try{
-      BufferedImage myPicture = ImageIO.read(new File("map.png"));
+      BufferedImage myPicture = ImageIO.read(new File("images/map.png"));
       ImageIcon pic = new ImageIcon(myPicture);
       Image img = pic.getImage();
       BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);

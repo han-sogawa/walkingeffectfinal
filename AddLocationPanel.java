@@ -68,12 +68,12 @@ public class AddLocationPanel extends JPanel{
     
     try {
       //create the font to use. Specify the size!
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(20f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(30f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(22f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
-      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")));
+      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -93,12 +93,12 @@ public class AddLocationPanel extends JPanel{
     //creates comboLocs array and stores into dropdown menus, with "No Location" option
     comboLocs = instanceMap.getLocationsCombo();
     nearbyLoc1Combo = new JComboBox(comboLocs);
-    nearbyLoc1Combo.setPreferredSize(new Dimension (250, 50));
+    nearbyLoc1Combo.setPreferredSize(new Dimension (250, 75));
     nearbyLoc1Combo.setMaximumSize(nearbyLoc1Combo.getPreferredSize());
     nearbyLoc1Combo.setFont(keyFont);
     nearbyLoc2Combo = new JComboBox(comboLocs);
     nearbyLoc2Combo.setFont(keyFont);
-    nearbyLoc2Combo.setPreferredSize(new Dimension (250, 50));
+    nearbyLoc2Combo.setPreferredSize(new Dimension (250, 75));
     nearbyLoc2Combo.setMaximumSize(nearbyLoc2Combo.getPreferredSize());
     
     //initializes label for location name
@@ -228,7 +228,7 @@ public class AddLocationPanel extends JPanel{
     keyText.setFont(keyFont);
     keyText.setMaximumSize(keyText.getPreferredSize());
     keyText.setEditable(false);
-    keyText.append("Map Key: ");
+    //keyText.append("Map Key: ");
     keyText.setRows(1);
     for(int i = 0; i < locs.length; i++){
       keyText.append("\n");
