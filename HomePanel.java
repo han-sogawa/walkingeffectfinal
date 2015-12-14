@@ -30,6 +30,7 @@ public class HomePanel extends JPanel implements ComponentListener{
   private Map m;
   
   private final Color BACKGROUND = new Color(138, 226, 255);
+  private final Color DIRECTIONS_BACKGROUND = new Color (204, 242, 255);
   
   public static void setKeyText(String[] locs){
     keyText.setText("");
@@ -163,6 +164,7 @@ public class HomePanel extends JPanel implements ComponentListener{
     
     //Initializes footer
     directions = new JTextPane();
+    directions.setBackground(DIRECTIONS_BACKGROUND);
     directions.setEditable(false);
     directions.setText("<Directions here>");
     directions.setFont(customFont);
