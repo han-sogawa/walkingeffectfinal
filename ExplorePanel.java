@@ -74,6 +74,7 @@ public class ExplorePanel extends JPanel {
     
     //sets font of text
     try{
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
       defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
       boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("fontBold.ttf")).deriveFont(20f);
       keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
@@ -233,7 +234,7 @@ public class ExplorePanel extends JPanel {
         Location chosenLocation = map.findLocation(s);
         name.setText ("You Selected:    " + chosenLocation.getName());
         name.setFont(boldFont);
-        about.setText("About:     " + chosenLocation.getAbout());
+        about.setText("About:     \n" + chosenLocation.getAbout());
         
         ImageIcon pic = new ImageIcon(chosenLocation.getPic());
         Image img = pic.getImage();
