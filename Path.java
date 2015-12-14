@@ -1,4 +1,4 @@
-/* 
+/****************************************************************************************
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
  * Writer for this Class: Alyssa Rivera
  * 
@@ -9,40 +9,38 @@
  * Known Bugs: None
  * 
  * Class that represents the Paths between two Locations
- */
+ ****************************************************************************************/
 
 import java.util.*;
 
 public class Path implements Comparable<Path> {
-  //double time; //time in minutes needed to walk the path at normal rate 
-  private double distance; //distance of path in feet (???)
-  private boolean hasStairs; private boolean hasHills;
-  private LinkedList<String> directions;
+  private double distance; //distance of path in miles
+  private boolean hasStairs; private boolean hasHills; //acesibility booleans
+  private LinkedList<String> directions; //used in getDirections()
   
   
-  /**
+  /****************************************************************************************
    *   Constructs a Path object given distance, info on stairs, and info on hills
    * 
    * @param dist    the distance of the path in feet
    * @param stairs  true if the path contains stairs
    * @param hill    true if the path is hilly
-   */ 
+   ****************************************************************************************/
   public Path (double dist, boolean stairs, boolean hill){
-    //time = t;
     distance = dist;
     hasStairs = stairs;
     hasHills = hill;
-    directions = new LinkedList<String>();
+    directions = new LinkedList<String>(); //initializes
   }
   
-  /**
+  /****************************************************************************************
    *   Constructs a Path object given distance, info on stairs, info on hills, and directions
    * 
    * @param dist    the distance of the path in feet
    * @param stairs  true if the path contains stairs
    * @param hill    true if the path is hilly
    * @param dir     String LinkedList of directions
-   */ 
+   ****************************************************************************************/
   public Path (double dist, boolean stairs, boolean hill, LinkedList<String> dir){
     distance = dist;
     hasStairs = stairs;
@@ -50,23 +48,25 @@ public class Path implements Comparable<Path> {
     directions = dir;
   }
   
-  /**
-   * Compares this path to that path. Returns a floored int of difference in time between the two paths.
-   * Negative when this is a shorter walk than that. Zero when the times are equal. Positive when this is longer.
-   * Takes Object type as parameter to satisfy Comparable's abstract method, returns Integer.MIN_VALUE if param not Path
-   * 
-   * @param that the Path to compare to this path
-   * @return     the difference in walking times of the paths
-   */ 
+  /****************************************************************************************
+    compareTo() 
+     
+    Compares this path to that path. Returns a floored int of difference in time between the two paths.
+    Negative when this is a shorter walk than that. Zero when the times are equal. Positive when this is longer.
+    Takes Object type as parameter to satisfy Comparable's abstract method, returns Integer.MIN_VALUE if param not Path
+    
+    @param that the Path to compare to this path
+    @return     the difference in walking times of the paths
+   ****************************************************************************************/
   public int compareTo(Path that){
     return (int) (this.getDistance() - that.getDistance());
   }
   
-  /**
-   * Returns a String representation of this Path, including all the information
-   * 
-   * @return
-   */ 
+  /****************************************************************************************
+    toString()
+    
+    Returns a String representation of this Path, including all the information
+   ****************************************************************************************/
   public String toString() {
     return "Minutes: " + this.calculateTime() + "\tDistance: " + this.getDistance() + 
       "\nAccessiblity: " +(this.hasStairs()?"Has Stairs" : "No Stairs") + "\t" +
@@ -75,60 +75,94 @@ public class Path implements Comparable<Path> {
   
   
   
-  /**
-   * Returns the time it takes to walk this path, calculated by distance
-   * average walking speed: 3.1 miles per hour  = 273 feet per minute
-   * 
-   * @return    the time it takes to walk this path
-   */ 
+  /****************************************************************************************
+    calculateTime()
+    
+    Returns the time it takes to walk this path, calculated by distance
+    average walking speed: 3.1 miles per hour  = 273 feet per minute
+    
+    @return    the time it takes to walk this path
+   ****************************************************************************************/
   public double calculateTime(){
     return distance/273;
   }
   
   
   
-  /****Getter Methods****/
+  ////////////Getter Methods/////////
   
-  //Returns the distance of this path
+  /****************************************************************************************
+  getDistance()
+  
+  returns the distance
+  ****************************************************************************************/
   public double getDistance(){
     return distance;
   }
   
-  //Returns whether this path has stairs
+  /****************************************************************************************
+  hasStairs()
+  
+  returns true if the path has stairs, returns false if not
+  ****************************************************************************************/
   public boolean hasStairs(){
     return hasStairs;
   }
 
-  //Returns whether this path has hills
+ /****************************************************************************************
+  hasHills()
+  
+  returns true if the path has hills, returns false if not
+  ****************************************************************************************/
   public boolean hasHills(){
     return hasHills;
   }
   
-  //Returns LinkedList of directions
+  /****************************************************************************************
+  getDirections()
+  
+  returns the linked list of directions
+  ****************************************************************************************/
   public LinkedList<String> getDirections(){
     return directions;
   }
   
   
   
-  /****Setter Methods****/
+  ///////////Setter Methods///////////
   
-  //Sets the distance of this path to the inputted double
+ /****************************************************************************************
+  setDistance()
+  
+  sets the distance variable of the path
+  ****************************************************************************************/
   public void setDistance(int d){
     distance = d;
   } 
   
-  //Sets the hasStairs field of this path to the inputted boolean
+  /****************************************************************************************
+  sethasStairs()
+  
+  sets the hasStairs variable of the path
+  ****************************************************************************************/
   public void setHasStairs(boolean s){
     hasStairs = s;
   }
   
-  //Sets the hasHills field of this path to the inputted boolean
+  /****************************************************************************************
+  setHasHills()
+  
+  sets the hasHills variable of the path
+  ****************************************************************************************/
   public void setHasHillss(boolean h){
     hasHills = h;
   }
   
-  //Sets directions for this path. Requires first and last element to be the locations for this path
+  /****************************************************************************************
+  setDirections()
+  
+  sets the directions variable of the path
+  ****************************************************************************************/
   public void setDirections(LinkedList<String> dir){
     directions = dir;
   }
