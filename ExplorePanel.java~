@@ -5,6 +5,7 @@
  * File name: ExplorePanel.java
  * Date Created: 12/8/15
  * Last Updated: 12/11/15
+ * Known Bugs: None
  * 
  * Class that contains Panel elements for the Explore tab of the Walking Effect GUI
  */

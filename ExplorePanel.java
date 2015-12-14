@@ -30,6 +30,8 @@ public class ExplorePanel extends JPanel implements ComponentListener{
   private Location[] locations;
   private Location chosenLocation;
   
+  private final Color BACKGROUND = new Color(138, 226, 255);
+  
   public static void setComboBox(String[] locs){
     locMenu.removeAllItems();
     for(int i = 0; i < locs.length; i++){
@@ -44,6 +46,8 @@ public class ExplorePanel extends JPanel implements ComponentListener{
     }
   }
   public ExplorePanel(Map m){ //pass in Map from GUI driver
+    
+    this.setBackground(BACKGROUND);
     
     //get location information (from Map passed in)
     map = m;
@@ -78,7 +82,8 @@ public class ExplorePanel extends JPanel implements ComponentListener{
 
     header = new JLabel("Use this menu to learn more about the locations on Wellesley's campus.", SwingConstants.CENTER);
     header.setFont(headerFont);
-         JPanel headerPanel = new JPanel();
+    JPanel headerPanel = new JPanel();
+    header.setBackground(BACKGROUND);
     headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.Y_AXIS));
     headerPanel.add(Box.createRigidArea (new Dimension (5, 80)));
     headerPanel.add(header);
@@ -114,6 +119,7 @@ public class ExplorePanel extends JPanel implements ComponentListener{
     
     //layout manager, addeverything
     JPanel leftPanel = new JPanel();
+    leftPanel.setBackground(BACKGROUND);
     leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
     leftPanel.add(Box.createRigidArea (new Dimension (5, 80)));
     leftPanel.add(locMenu);
@@ -122,6 +128,7 @@ public class ExplorePanel extends JPanel implements ComponentListener{
     leftPanel.add(Box.createRigidArea (new Dimension (5, 120)));
     
     JPanel rightPanel = new JPanel();
+    rightPanel.setBackground(BACKGROUND);
     rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.X_AXIS));
     //rightPanel.add(Box.createRigidArea(new Dimension(100, 0)));
     //adds map image
@@ -157,10 +164,11 @@ public class ExplorePanel extends JPanel implements ComponentListener{
     
     
     JPanel bottomPanel = new JPanel();
+    bottomPanel.setBackground(BACKGROUND);
     bottomPanel.setLayout(new BorderLayout());
-        bottomPanel.add(nameBold, BorderLayout.NORTH);
+    bottomPanel.add(nameBold, BorderLayout.NORTH);
     bottomPanel.add(name, BorderLayout.NORTH);
-        bottomPanel.add(aboutBold, BorderLayout.WEST);
+    bottomPanel.add(aboutBold, BorderLayout.WEST);
     bottomPanel.add(about, BorderLayout.WEST);
     //  try{
     ImageIcon pic = new ImageIcon(chosenLocation.getPic());
