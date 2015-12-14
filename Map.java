@@ -10,15 +10,9 @@
  * Creates an instance of a Map Object, which provides the finctionality for the map represented in WalkingEffectGUI.java
  */
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 import java.text.DecimalFormat;
 import javafoundations.*;
 
@@ -203,7 +197,6 @@ public class Map implements ObjectGraph<Location, Path>{
     Helper Method - copies locations[] and paths[][] into larger arrays
     Called when there is no more space to add more vertices
     ******************************************************************/
-  @SuppressWarnings("unchecked")
   private void expandCapacity() {
     Location[] largerVertices = new Location[locations.length*2];
     Path[][] largerAdjMatrix = 
@@ -626,7 +619,7 @@ public class Map implements ObjectGraph<Location, Path>{
    ******************************************************************/
   private double getDistanceBetween(Location a, Location b){
     //if b is a successor of a
-    LinkedList successors = getSuccessors(a);
+    LinkedList<Location> successors = getSuccessors(a);
     if(!successors.contains(b))
       return NOT_FOUND;
     

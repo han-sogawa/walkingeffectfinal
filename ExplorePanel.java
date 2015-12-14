@@ -28,8 +28,8 @@ public class ExplorePanel extends JPanel {
   private JScrollPane aboutScroll, bottomScroll;
   private static JComboBox locMenu;
   private Map map; //common map object
-  //private Location[] locations;
-  private Location chosenLocation;
+  private Location[] locations; // get locations from map object
+  private Location chosenLocation; //store current location
   private final Color BACKGROUND = new Color(138, 226, 255);
   
   /******************************************************************
