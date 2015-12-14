@@ -1,10 +1,10 @@
 Division of Labor
 
-Alyssa- ExplorePanel, Location, Map, Path
-Hannah- AddLocationPanel, Map, ObjectGraph
-Mary- AboutPanel, HomePanel, Map, WalkingEffectGUI, WellesleyMap
+Alyssa- ExplorePanel, Location, Map, Path, MinHeap
+Hannah- AddLocationPanel, Map, ObjectGraph, MinHeap
+Mary- AboutPanel, HomePanel, Map, WalkingEffectGUI, WellesleyMap, MinHeap
 
-All three of us collaborated to implement Dijkstra’s Algorithm for the getDirections() method. We also all worked on the getDirectionsString() method. Most of the coding was done collaboratively, as we would meet up and work together. Therefore, all three of us worked together to debug when problems came up.
+All three of us collaborated to implement Dijkstra’s Algorithm for the getDirections() method. We also all worked on the getDirectionsString() method. In addition, when using the PriorityQueue for getDirections(), it was implemented in class with a MaxHeap, but we needed a MinHeap. We implemented our own MinHeap version to have a correct PriorityQueue. Most of the coding was done collaboratively, as we would meet up and work together. Therefore, all three of us worked together to debug when problems came up.
 
 Hannah did most of the formatting and basics in the Map class. She also implemented the AddLocationPanel, which included her making sure the new location added on the Home and Explore tabs. She also created the ObjectGraph interface for the Map Class.
 

@@ -8,7 +8,7 @@
   * Known Bugs: None
   * 
   * Creates an instance of a Map Object, which provides the functionality for the map 
-  * represented in WalkingEffectGUI.java.
+  * represented in WalkingEffectGUI.java. Implements ObjectGraph<Location, Path>.
   *************************************************************************************/
 
 import java.util.Iterator;
