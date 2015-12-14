@@ -69,7 +69,7 @@ public class AddLocationPanel extends JPanel{
     try {
       //create the font to use. Specify the size!
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(20f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(20f);
       keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
@@ -191,7 +191,7 @@ public class AddLocationPanel extends JPanel{
     navi.add(add);
     
     
-    //creates panel for map and key
+    //creates panel for map and keyPanel
     mapPic = new JPanel();
     mapPic.setBackground(BACKGROUND);
     mapPic.setLayout(new BoxLayout(mapPic, BoxLayout.X_AXIS));
@@ -212,8 +212,18 @@ public class AddLocationPanel extends JPanel{
     catch(IOException io){
       System.out.println(io);
     }
+       
+    //Creates panel for keyText and keyLabel
+    JPanel keyPanel = new JPanel();
+    keyPanel.setBackground(BACKGROUND);
+    keyPanel.setLayout(new BoxLayout(keyPanel, BoxLayout.Y_AXIS));
     
-    //creates map key
+    //creates keyLabel and adds to keyPanel
+    JLabel keyLabel = new JLabel("Map Key:");
+    keyLabel.setFont(customFont);
+    keyPanel.add(keyLabel);
+    
+    //creates keyText
     keyText = new JTextArea(12, 20);
     keyText.setFont(keyFont);
     keyText.setMaximumSize(keyText.getPreferredSize());
@@ -225,10 +235,12 @@ public class AddLocationPanel extends JPanel{
       keyText.append(locs[i]);
     }
     
-    //makes map key scrollable and adds to map panel
+    //makes keyText scrollable and adds to keyPanel
     JScrollPane jp = new JScrollPane(keyText);
     jp.setMaximumSize(keyText.getPreferredSize());
-    mapPic.add(jp);
+    keyPanel.add(jp);
+    
+    mapPic.add(keyPanel);
     
     //Initializes footer
     footer = new JLabel("", SwingConstants.CENTER);
