@@ -1,13 +1,14 @@
-/* 
+/************************************************************************************* 
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this Class: Mary DuBard
+ * Author of this Class: Mary DuBard
  * 
- * File name: WellesleyMap.java
- * Date Created: 12/12/15
+ * File Name: WellesleyMap.java
+ * Created: 12/12/15
  * Last Updated: 12/12/15
+ * Known Bugs: None
  * 
  * Class that creates Map object specific to Wellesley
- */
+ *************************************************************************************/
 import java.util.*;
 
 public class WellesleyMap extends Map{

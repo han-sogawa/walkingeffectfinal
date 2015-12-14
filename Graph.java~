@@ -1,11 +1,3 @@
-/**************************************************************************************** 
-  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
-  * 
-  * File Name: Graph.java
-  * Known Bugs: None
-  * 
-  * Graph interface
- ****************************************************************************************/ 
 import java.util.LinkedList;
 
 /**

@@ -1,13 +1,14 @@
-/* 
+/************************************************************************************* 
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this Class: Mary DuBard
+ * Author of this Class: Mary DuBard
  * 
- * File name: WalkingEffectGUI.java
- * Date Created: 12/8/15
- * Last Updated: 12/10/15
+ * File Name: WalkingEffectGUI.java
+ * Created: 12/8/15
+ * Last Updated: 12/14/15
+ * Known Bugs: None
  * 
  * Class that creates the Walking Effect GUI
- */
+ *************************************************************************************/
 
 import java.awt.*;
 import javax.swing.*;
@@ -24,7 +25,7 @@ public class WalkingEffectGUI{
     //creates Map object
     Map map = new WellesleyMap();
     
-    //adds three tabs
+    //adds four tabs
     AboutPanel about = new AboutPanel();
     HomePanel home = new HomePanel(map);
     AddLocationPanel addLoc = new AddLocationPanel(map);

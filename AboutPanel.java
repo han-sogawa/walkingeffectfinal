@@ -1,13 +1,13 @@
 /**************************************************************************************** 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this Class: Mary DuBard
- * 
- * File name: AboutPanel.java
- * Date Created: 12/13/15
- * Last Updated: 12/14/15
- * Known Bugs: None
- * 
- * Class that contains Panel elements for the About tab of the Walking Effect GUI
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Mary DuBard
+  * 
+  * File Name: AboutPanel.java
+  * Created: 12/13/15
+  * Last Updated: 12/14/15
+  * Known Bugs: None
+  * 
+  * Class that contains Panel elements for the About tab of the Walking Effect GUI
  ****************************************************************************************/ 
 import java.awt.*;
 import javax.swing.*;

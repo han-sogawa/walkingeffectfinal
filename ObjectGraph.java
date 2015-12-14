@@ -1,8 +1,15 @@
-/*ObjectGraph.java
- * Authors: Mary Dubard, Hannah Murphy, Alyssa Rivera 
- * Primary Author: Hannah Murphy 
- * Interface for a graph that uses objects to represent arcs between the nodes. Very similar to AdjMatGraph.
- */ 
+/*************************************************************************************
+ * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+ * Author of this Class: Mary DuBard, Hannah Murphy, Alyssa Rivera
+ * 
+ * File Name: ObjectGraph.java
+ * Created: 12/8/15
+ * Last Updated: 12/14/15
+ * Known Bugs: None
+ * 
+ * Interface for a graph that uses objects to represent arcs between the nodes. 
+ * Very similar to AdjMatGraph.
+ *************************************************************************************/ 
 
 import java.util.*;
 

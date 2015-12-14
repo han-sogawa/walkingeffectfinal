@@ -1,14 +1,15 @@
-/* 
+/************************************************************************************* 
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this Class: Hannah Murphy
+ * Author of this File: Hannah Murphy
  * 
- * File name: Map.java
- * Date Created: 12/8/15
+ * File Name: Map.java
+ * Created: 12/8/15
  * Last Updated: 12/12/15
  * Known Bugs: None
  * 
- * Creates an instance of a Map Object, which provides the finctionality for the map represented in WalkingEffectGUI.java
- */
+ * Creates an instance of a Map Object, which provides the functionality for the map 
+ * represented in WalkingEffectGUI.java.
+ *************************************************************************************/
 
 import java.util.Iterator;
 import java.util.LinkedList;

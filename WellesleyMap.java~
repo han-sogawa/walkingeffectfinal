@@ -2,11 +2,11 @@
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
  * Writer for this Class: Mary DuBard
  * 
- * File name: WalkingEffectGUI.java
+ * File name: WellesleyMap.java
  * Date Created: 12/12/15
  * Last Updated: 12/12/15
  * 
- * Class that creates Map object for Wellesley
+ * Class that creates Map object specific to Wellesley
  */
 import java.util.*;
 
@@ -96,12 +96,11 @@ public class WellesleyMap extends Map{
     Path sciCen2east = new Path(.2, true, false, new LinkedList<String>(Arrays.asList("SciCen", "East")));
     //(7)Twr will go to Alum(above), Lulu(above), AcaQ(above), and Lib
     Path twr2lib = new Path(.2, false, true, new LinkedList<String>(Arrays.asList("Twr", "Lib")));
-    //(8)Lib will go to Lulu(above), AcaQ(above), SciCen(above), Twr(above), Stone, and East
+    //(8)Lib will go to Lulu(above), AcaQ(above), SciCen(above), Twr(above), and Stone
     Path lib2stone = new Path(.2, false, true, new LinkedList<String>(Arrays.asList("Lib", "Stone")));
-    Path lib2east = new Path(.3, true, true, new LinkedList<String>(Arrays.asList("Lib", "East")));
     //(9)Stone will go to AcaQ(above), SciCen(above), Lib(above) and East
     Path stone2east = new Path(.1, true, true, new LinkedList<String>(Arrays.asList("Stone", "East")));
-    //(10)East will go to AcaQ(above), SciCen(above), Lib(above), and Stone(above)
+    //(10)East will go to AcaQ(above), SciCen(above), and Stone(above)
     
     //add Paths to Wellesley Map
     addEdge(ksc, resQ, ksc2resQ);
@@ -124,7 +123,6 @@ public class WellesleyMap extends Map{
     addEdge(sciCen, east, sciCen2east);
     addEdge(twr, lib, twr2lib);
     addEdge(lib, stone, lib2stone);
-    addEdge(lib, east, lib2east);
     addEdge(stone, east, stone2east);
   }
 }

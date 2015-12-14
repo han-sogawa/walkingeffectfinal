@@ -1,14 +1,14 @@
 /*************************************************************************************
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author of this class: Alyssa Rivera
+ * Author of this Class: Alyssa Rivera
  * 
- * Created: December 8th, 2015
- * Last Modified: December 10th, 2015
- * Known Bugs: none
+ * File Name: Location.java
+ * Created: 12/8/15
+ * Last Updated: 12/10/15
+ * Known Bugs: None
  * 
  * Represents a location on Wellesley's campus, including the following information:
- * name, description, image of the place
- * Necessary for the Map class
+ * name, description, image of the place. Necessary for the Map class.
  *************************************************************************************/ 
 
 import java.awt.*;

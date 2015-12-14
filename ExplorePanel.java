@@ -1,14 +1,14 @@
-/****************************************************************** 
+/************************************************************************************* 
   * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
-  * Writer for this Class: Mary DuBard, Alyssa Rivera
+  * Author of this File: Mary DuBard, Alyssa Rivera
   * 
-  * File name: ExplorePanel.java
-  * Date Created: 12/8/15
+  * File Name: ExplorePanel.java
+  * Created: 12/8/15
   * Last Updated: 12/14/15
   * Known Bugs: None
   * 
   * Class that contains Panel elements for the Explore tab of the Walking Effect GUI
-  ****************************************************************/ 
+  *************************************************************************************/ 
 
 //imports
 import java.awt.*;

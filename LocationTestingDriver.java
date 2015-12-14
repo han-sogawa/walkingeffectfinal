@@ -1,14 +1,14 @@
-/**
+/*************************************************************************************
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author for this class: Alyssa Rivera
+ * Author of this class: Alyssa Rivera
+ * 
  * File Name: LocationTestingDriver.java
- * Created: December 8th, 2015
- * Updated: December 8th, 2015
- * Known bugs: None
+ * Created: 12/8/15
+ * Last Updated: 12/8/15
+ * Known Bugs: None
  * 
  * Tests the Location class and methods
- * 
- */ 
+ *************************************************************************************/ 
 
 public class LocationTestingDriver{
   public static void main (String[] args){
