@@ -21,8 +21,10 @@ public class AddLocationPanel extends JPanel{
   private JPanel navi, mapPic;
   private JComboBox nearbyLoc1Combo, nearbyLoc2Combo;
   private JButton add;
+  private JScrollPane aboutScroll;
   private JTextArea keyText;
   private JTextField locName, distField1, distField2;
+  private JTextArea aboutInfo;
   private JCheckBox hasHillsCheck1, hasStairsCheck1, hasHillsCheck2, hasStairsCheck2;
   private Map instanceMap;
   private String[] locs, comboLocs;
@@ -142,6 +144,16 @@ public class AddLocationPanel extends JPanel{
     hasStairsCheck2.setFont(keyFont);
     hasStairsCheck2.setBackground(BACKGROUND);
     
+    //aboutInfo text area
+    aboutInfo = new JTextArea(12,20);
+    aboutInfo.setFont(keyFont);
+    //aboutInfo.setPreferredSize(new Dimension(250, 100));
+    aboutInfo.setColumns(25);
+    aboutInfo.setMaximumSize(aboutInfo.getPreferredSize());
+    aboutInfo.setLineWrap(true);
+    aboutScroll = new JScrollPane (aboutInfo, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    
+    
     //creates submit button
     add = new JButton("Add Location");
     add.setPreferredSize(new Dimension(40, 40));
@@ -152,7 +164,7 @@ public class AddLocationPanel extends JPanel{
     navi = new JPanel();
     navi.setBackground(BACKGROUND);
     navi.setLayout(new BoxLayout(navi, BoxLayout.Y_AXIS));
-    navi.add(Box.createRigidArea(new Dimension(0, 50)));
+    //navi.add(Box.createRigidArea(new Dimension(0, 50)));
     navi.add(enterName);
     navi.add(locNamePanel);
     
@@ -163,13 +175,14 @@ public class AddLocationPanel extends JPanel{
     navi.add(hasHillsCheck1);
     navi.add(hasStairsCheck1);
     
-    navi.add(Box.createRigidArea(new Dimension(0, 10)));
+    //navi.add(Box.createRigidArea(new Dimension(0, 10)));
     navi.add(nearbyLoc2);
     navi.add(nearbyLoc2Combo);
     navi.add(dist2);
     navi.add(distField2Panel);
     navi.add(hasHillsCheck2);
     navi.add(hasStairsCheck2);
+    navi.add(aboutInfo);
     navi.add(add);
     
     
@@ -240,18 +253,20 @@ public class AddLocationPanel extends JPanel{
       and adds to map object. Updates map key.
       *******************************************************************/
     public void actionPerformed(ActionEvent event){
+      Location l = null;
       
       if(!locName.getText().equals("")){ //if user inputted a location name
         //Stores user's location name plus count into string
         String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText(); 
         
-        Location l = new Location(newLocName); //Creates location from user's name 
+         
         boolean isSecondDest = false; //sets existence of nearby second location default as false
         
         newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString(); //gets string of comboloc nearby destination
         if(!newNearbyLoc1.equals("No location selected.")){ //if user selected a location
           try{ //try to get distance and create a path
             if(!distField1.getText().equals("")){ //if user inputted distance
+              l = new Location(newLocName); //Creates location from user's name
               double locDist1 = Double.parseDouble(distField1.getText()); //stores distance into double
               boolean hasHills1 = hasHillsCheck1.isSelected(); //whether path has hills
               boolean hasStairs1 = hasStairsCheck1.isSelected(); //whether path has stairs
@@ -260,6 +275,9 @@ public class AddLocationPanel extends JPanel{
               //adds location and path
               instanceMap.addVertex(l);
               instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc1), p);
+              
+              l.setAbout(aboutInfo.getText());
+              
             }else{
               JOptionPane.showMessageDialog(null,
                                             "Enter a distance to Destination 1.");
