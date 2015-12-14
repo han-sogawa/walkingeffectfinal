@@ -1,4 +1,4 @@
-/* 
+/**************************************************************************************** 
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
  * Writer for this Class: Mary DuBard
  * 
@@ -8,7 +8,7 @@
  * Known Bugs: None
  * 
  * Class that contains Panel elements for the About tab of the Walking Effect GUI
- */
+ ****************************************************************************************/ 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.text.*;
