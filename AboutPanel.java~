@@ -22,10 +22,13 @@ import java.net.URL;
 import java.applet.*;
 
 public class AboutPanel extends JPanel{
-  JLabel header, footer;
+  private JLabel header, footer;
+  
+  private final Color BACKGROUND = new Color(138, 226, 255);
   
   public AboutPanel(){
     setLayout(new BorderLayout());
+    this.setBackground(BACKGROUND);
     
     //set font to default as helvetica
     Font headerFont = new Font("Helvetica", Font.PLAIN, 20);
@@ -51,6 +54,7 @@ public class AboutPanel extends JPanel{
     }
     
     JPanel top = new JPanel();
+    top.setBackground(BACKGROUND);
     top.setLayout(new BoxLayout(top, BoxLayout.Y_AXIS));
     
     header = new JLabel("Welcome to the Walking Effect!");
@@ -65,6 +69,7 @@ public class AboutPanel extends JPanel{
     top.add(authors);
     
     JPanel picPanel = new JPanel();
+    picPanel.setBackground(BACKGROUND);
     picPanel.setLayout(new BoxLayout(picPanel, BoxLayout.Y_AXIS));
     try{
       BufferedImage myPicture = ImageIO.read(new File("walkingEffectOpaque.jpg"));
@@ -82,9 +87,11 @@ public class AboutPanel extends JPanel{
     }
     
     JPanel bottom = new JPanel();
+    bottom.setBackground(BACKGROUND);
     bottom.setLayout(new BoxLayout(bottom, BoxLayout.Y_AXIS));
     
     JTextPane paragraph = new JTextPane();
+    paragraph.setBackground(BACKGROUND);
     //paragraph.setMaximumSize(paragraph.getPreferredSize());
     paragraph.setText("The Walking Effect is an application created to make navigating Wellesley’s campus easier for anyone, "
                        + "from students to visitors. \nUsers of the Walking Effect will be able to simply choose two locations "

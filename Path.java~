@@ -6,6 +6,7 @@
  * Date Created: 12/8/15
  * Last Updated: 12/12/15
  * Updater: Mary DuBard
+ * Known Bugs: None
  * 
  * Class that represents the Paths between two Locations
  */

@@ -1,9 +1,10 @@
 /*ObjectGraph.java
  * Authors: Mary Dubard, Hannah Murphy, Alyssa Rivera 
- * Primary Author: hannah Murph 
+ * Primary Author: Hannah Murphy 
  * Interface for a graph that uses objects to represent arcs between the nodes. Very similar to AdjMatGraph.
  */ 
 
+import java.util.*;
 
 public interface ObjectGraph<T, M>{
   
@@ -64,8 +65,67 @@ public interface ObjectGraph<T, M>{
   /******************************************************************
     getArc()
     
-    returns the M object between the specified locations
+    returns the M object between the specified vertices
     ******************************************************************/
-  public Path getArc(int src, int dest);
+  public M getArc(T src, T dest);
+  
+  /******************************************************************
+    removeEdge() 
     
+    Removes an edge (both arcs) from vertex src to vertex dest,
+    if the vertices do not exist does not change the graph. 
+    ******************************************************************/
+  public void removeEdge(T vertex1, T vertex2);
+  
+  /******************************************************************
+    removeArc() 
+    
+    Removes an arc from vertex src to vertex dest,
+    if the vertices do not exist does not change the graph. 
+    ******************************************************************/
+  public void removeArc(T srcVertex, T destVertex);
+  
+  /*****************************************************************
+    isEmpty()
+    
+    returns true if the graph is empty (has no locations)
+    ***************************************************************/
+  public boolean isEmpty();
+  
+  /******************************************************************
+    n()
+    
+    Returns the number of vertices in the graph.
+    ******************************************************************/
+  public int n();
+  
+  /******************************************************************
+    m()
+    
+    Returns the number of arcs in the graph.
+    ******************************************************************/
+  public int m();
+  
+  /******************************************************************
+    getPredecessors()
+    
+    Retrieve from a graph the vertices x pointing to vertex v (x->v)
+    and returns them onto a linked list. Returns emptylist if there are no predecessors
+    ******************************************************************/
+  public LinkedList<T> getPredecessors(T loc);
+  
+  /******************************************************************
+    getSuccessors()
+    
+    Retrieve from a graph the vertices x following vertex v (v->x)
+    and returns them onto a linked list. Returns empty list if there are no successors
+    ******************************************************************/
+  public LinkedList<T> getSuccessors(T loc);
+    
+  /******************************************************************
+   toString()
+   
+  Returns a string representation of the graph
+   ******************************************************************/
+  public String toString();
 }

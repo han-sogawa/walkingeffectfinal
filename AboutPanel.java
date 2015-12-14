@@ -4,25 +4,20 @@
  * 
  * File name: AboutPanel.java
  * Date Created: 12/13/15
- * Last Updated: 12/13/15
+ * Last Updated: 12/14/15
  * Known Bugs: None
  * 
  * Class that contains Panel elements for the About tab of the Walking Effect GUI
  */
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.text.*;
-import javax.swing.event.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-//import javax.media.*;
-import java.net.URL;
-import java.applet.*;
 
 public class AboutPanel extends JPanel{
-  private JLabel header, footer;
+  private JLabel header, footer; //variables for header and footer labels
   
   private final Color BACKGROUND = new Color(138, 226, 255);
   
@@ -30,18 +25,19 @@ public class AboutPanel extends JPanel{
     setLayout(new BorderLayout());
     this.setBackground(BACKGROUND);
     
+    /**
+     * Code for Font style
+     **/ 
     //set font to default as helvetica
     Font headerFont = new Font("Helvetica", Font.PLAIN, 20);
     Font footerFont = new Font("Helvetica", Font.PLAIN, 20);
     Font customFont = new Font("Helvetica", Font.PLAIN, 18);
-    Font keyFont = new Font("Helvetica", Font.PLAIN, 13);
     
     try {
       //create the font to use. Specify the size!
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(30f);
       footerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
       customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(23f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(15f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")));
@@ -53,21 +49,31 @@ public class AboutPanel extends JPanel{
       e.printStackTrace();
     }
     
+    
+    /**
+     * Code for Content
+     **/ 
+    
+    //Creates panel for upper formatting
     JPanel top = new JPanel();
     top.setBackground(BACKGROUND);
     top.setLayout(new BoxLayout(top, BoxLayout.Y_AXIS));
     
+    //Creates welcome header
     header = new JLabel("Welcome to the Walking Effect!");
     header.setAlignmentX(CENTER_ALIGNMENT);
     header.setFont(headerFont);
     
+    //Creates label for author information
     JLabel authors = new JLabel("<html><center>Created by Mary DuBard, Hannah Murphy, and Alyssa Rivera</center><br><br></html>", SwingConstants.CENTER);
     authors.setFont(customFont);
     authors.setAlignmentX(CENTER_ALIGNMENT);
     
+    //Adds header and author to upper panel
     top.add(header);
     top.add(authors);
     
+    //Creates panel for picture and stores Walking Effect logo
     JPanel picPanel = new JPanel();
     picPanel.setBackground(BACKGROUND);
     picPanel.setLayout(new BoxLayout(picPanel, BoxLayout.Y_AXIS));
@@ -86,10 +92,12 @@ public class AboutPanel extends JPanel{
       System.out.println(io);
     }
     
+    //Creates panel for lower formatting
     JPanel bottom = new JPanel();
     bottom.setBackground(BACKGROUND);
     bottom.setLayout(new BoxLayout(bottom, BoxLayout.Y_AXIS));
     
+    //Creates centered paragraph about Walking Effect
     JTextPane paragraph = new JTextPane();
     paragraph.setBackground(BACKGROUND);
     //paragraph.setMaximumSize(paragraph.getPreferredSize());
@@ -106,13 +114,16 @@ public class AboutPanel extends JPanel{
     StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
     doc.setParagraphAttributes(0, doc.getLength(), center, false);
     
+    //Creates quote for comedic effect
     footer = new JLabel("<html><center><br><br><br>'Everywhere is within walking distance if you have the time.'  - Steven Wright</center></html>", SwingConstants.CENTER);
     footer.setFont(footerFont);
     footer.setAlignmentX(CENTER_ALIGNMENT);
     
+    //Adds about paragraph and quote to bottom panel
     bottom.add(paragraph);
     bottom.add(footer);
     
+    //Adds 3 panels to AboutPanel
     add(top, BorderLayout.NORTH);
     add(picPanel, BorderLayout.CENTER);
     add(bottom, BorderLayout.SOUTH);
