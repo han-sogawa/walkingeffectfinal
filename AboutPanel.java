@@ -10,15 +10,11 @@
  * Class that contains Panel elements for the About tab of the Walking Effect GUI
  */
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.text.*;
-import javax.swing.event.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import java.net.URL;
-import java.applet.*;
 
 public class AboutPanel extends JPanel{
   private JLabel header, footer; //variables for header and footer labels
@@ -36,14 +32,12 @@ public class AboutPanel extends JPanel{
     Font headerFont = new Font("Helvetica", Font.PLAIN, 20);
     Font footerFont = new Font("Helvetica", Font.PLAIN, 20);
     Font customFont = new Font("Helvetica", Font.PLAIN, 18);
-    Font keyFont = new Font("Helvetica", Font.PLAIN, 13);
     
     try {
       //create the font to use. Specify the size!
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(30f);
       footerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
       customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(23f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(15f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")));
