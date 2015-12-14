@@ -1,3 +1,14 @@
+/* 
+ * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+ * Writer for this file: Hannah Murphy
+ * 
+ * File name: AddLocationPanel.java
+ * Date Created: 12/11/15
+ * Last Updated: 12/14/15
+ * Known Bugs: None
+ * 
+ * Class that contains Panel elements for the Add Location tab of the Walking Effect GUI
+ */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -17,6 +28,13 @@ public class AddLocationPanel extends JPanel{
   private String[] locs, comboLocs;
   private final Color BACKGROUND = new Color(138, 226, 255);
   
+  /**
+   * setKeyText(String[] locs)
+   * @param String array of location names
+   * 
+   * Sets the content of the Map Key
+   * Used when user adds a new location
+   **/ 
   public void setKeyText(){
     for(int i = 0; i < locs.length; i++){
       keyText.append("\n");
@@ -24,14 +42,24 @@ public class AddLocationPanel extends JPanel{
     }
   }
   
+  /**
+   * AddLocationPanel Constructor
+   * @param Map object
+   * 
+   * Creates AddLocationPanel
+   **/ 
   public AddLocationPanel(Map map){
-    instanceMap = map;
-    setLayout (new BorderLayout());
+    instanceMap = map; //stores map to instance variable
+    locs = instanceMap.getLocations();
     
-    //backgroundColor
-    this.setBackground(BACKGROUND);
+    //Formatting
+    setLayout(new BorderLayout()); 
+    setBackground(BACKGROUND);
     
-        //set font to default as helvetica
+    /**
+     * Code for Font style
+     **/ 
+    //set font to default as helvetica
     Font headerFont = new Font("Helvetica", Font.PLAIN, 20);
     Font customFont = new Font("Helvetica", Font.PLAIN, 15);
     Font keyFont = new Font("Helvetica", Font.PLAIN, 13);
@@ -52,13 +80,16 @@ public class AddLocationPanel extends JPanel{
       e.printStackTrace();
     }
     
-    header = new JLabel("\nFill in the fields below to add a custom location to your map!", SwingConstants.CENTER);
-        header.setFont(headerFont);
     
-    locs = instanceMap.getLocations();
+    /**
+     * Creates content for AddLocationPanel
+     **/ 
+    //creates content for header
+    header = new JLabel("\nFill in the fields below to add a custom location to your map!", SwingConstants.CENTER);
+    header.setFont(headerFont);
     
     comboLocs = instanceMap.getLocationsCombo();
-      //initialize combo boxes, using String array ratings for values
+    //initialize combo boxes, using String array ratings for values
     nearbyLoc1Combo = new JComboBox(comboLocs);
     nearbyLoc1Combo.setFont(keyFont);
     nearbyLoc2Combo = new JComboBox(comboLocs);
@@ -133,7 +164,7 @@ public class AddLocationPanel extends JPanel{
     navi.add(hasHillsCheck2);
     navi.add(hasStairsCheck2);
     navi.add(add);
-
+    
     
     //creates panel for map and key
     mapPic = new JPanel();
@@ -194,106 +225,106 @@ public class AddLocationPanel extends JPanel{
     public void actionPerformed(ActionEvent event){
       
       if(!locName.getText().equals("")){
-      //footer.setText("Yo");
-      
-      //save combo box values as a string, if no value was chosen, the default value is 1
-      String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText();
-      
-      Location l = new Location(newLocName);
-      footer.setText(newLocName);
-      //instanceMap.addVertex(l);
-      /*String[] locs = instanceMap.getLocations();
-      String s = ""; 
-      for(int i = 0; i < locs.length; i++){
-        s += locs[i] + " ";
-      }
-      footer.setText(s);
-*/
-      boolean isSecondDest = false;
-      
-      newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
-      if(!newNearbyLoc1.equals("No location selected.")){
-        instanceMap.addVertex(l);
-        try{
-          //footer.setText("You have to enter at least one nearby location! try again");
-        //newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
-        if(!distField2.getText().equals("")){
-        double locDist1 = Double.parseDouble(distField1.getText());
-        //double timeDist1 = Double.parseDouble(timeField1.getText());
-        boolean hasHills1 = hasHillsCheck1.isSelected();
-        boolean hasStairs1 = hasStairsCheck1.isSelected();
+        //footer.setText("Yo");
         
-        Path p = new Path(locDist1, hasStairs1, hasHills1);
-        footer.setText(p.toString());
-        instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc1), p);
-        }else{
+        //save combo box values as a string, if no value was chosen, the default value is 1
+        String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText();
+        
+        Location l = new Location(newLocName);
+        footer.setText(newLocName);
+        //instanceMap.addVertex(l);
+        /*String[] locs = instanceMap.getLocations();
+         String s = ""; 
+         for(int i = 0; i < locs.length; i++){
+         s += locs[i] + " ";
+         }
+         footer.setText(s);
+         */
+        boolean isSecondDest = false;
+        
+        newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
+        if(!newNearbyLoc1.equals("No location selected.")){
+          instanceMap.addVertex(l);
+          try{
+            //footer.setText("You have to enter at least one nearby location! try again");
+            //newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
+            if(!distField2.getText().equals("")){
+              double locDist1 = Double.parseDouble(distField1.getText());
+              //double timeDist1 = Double.parseDouble(timeField1.getText());
+              boolean hasHills1 = hasHillsCheck1.isSelected();
+              boolean hasStairs1 = hasStairsCheck1.isSelected();
+              
+              Path p = new Path(locDist1, hasStairs1, hasHills1);
+              footer.setText(p.toString());
+              instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc1), p);
+            }else{
+              JOptionPane.showMessageDialog(null,
+                                            "Enter a valid distance to Destination 1.");
+            }
+          }catch(NullPointerException e){
+            System.out.println("You must enter valid input");
+          }catch(NumberFormatException n){
             JOptionPane.showMessageDialog(null,
-                                      "Enter a valid distance to Destination 1.");
+                                          "Enter a valid number for the distance!");
           }
-      }catch(NullPointerException e){
-        System.out.println("You must enter valid input");
-      }catch(NumberFormatException n){
-        JOptionPane.showMessageDialog(null,
-                                      "Enter a valid number for the distance!");
-      }
-      
-      
-      
-      newNearbyLoc2 = nearbyLoc2Combo.getSelectedItem().toString();
-      System.out.println(newNearbyLoc2.equals("No location selected."));
-      if(!newNearbyLoc2.equals("No location selected.")){
-        try{
-          isSecondDest = true;
-          //footer.setText("You have to enter at least one nearby location! try again");
-          if(!distField2.getText().equals("")){
-          double locDist2 = Double.parseDouble(distField2.getText());
-          //double timeDist1 = Double.parseDouble(timeField1.getText());
-          boolean hasHills2 = hasHillsCheck2.isSelected();
-          boolean hasStairs2 = hasStairsCheck2.isSelected();
           
-          Path p = new Path(locDist2, hasStairs2, hasHills2);
-          instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc2), p);
-          }else{
-            JOptionPane.showMessageDialog(null,
-                                      "Enter a valid distance to Destination 2.");
+          
+          
+          newNearbyLoc2 = nearbyLoc2Combo.getSelectedItem().toString();
+          System.out.println(newNearbyLoc2.equals("No location selected."));
+          if(!newNearbyLoc2.equals("No location selected.")){
+            try{
+              isSecondDest = true;
+              //footer.setText("You have to enter at least one nearby location! try again");
+              if(!distField2.getText().equals("")){
+                double locDist2 = Double.parseDouble(distField2.getText());
+                //double timeDist1 = Double.parseDouble(timeField1.getText());
+                boolean hasHills2 = hasHillsCheck2.isSelected();
+                boolean hasStairs2 = hasStairsCheck2.isSelected();
+                
+                Path p = new Path(locDist2, hasStairs2, hasHills2);
+                instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc2), p);
+              }else{
+                JOptionPane.showMessageDialog(null,
+                                              "Enter a valid distance to Destination 2.");
+              }
+            }catch(NullPointerException e){
+              System.out.println("You must enter valid input.");
+            }catch(NumberFormatException n){
+              System.out.println("You must enter valid input");
+            }
           }
-        }catch(NullPointerException e){
-          System.out.println("You must enter valid input.");
-        }catch(NumberFormatException n){
-          System.out.println("You must enter valid input");
+          String footerText =  "New Location \"" + l.toString() + "\" has been added to the map,";
+          footerText += isSecondDest ? " along with paths that lead to " + newNearbyLoc1 + " and " + newNearbyLoc2 + "." : " along with a path that leads to " + newNearbyLoc1;
+          
+          
+          
+          footer.setText(footerText);
+        }else{
+          JOptionPane.showMessageDialog(null,
+                                        "Please enter at least one nearby location and the distance to that location.");
+          footer.setText("You have to select at least one nearby location! Try again");
         }
-      }
-      String footerText =  "New Location \"" + l.toString() + "\" has been added to the map,";
-       footerText += isSecondDest ? " along with paths that lead to " + newNearbyLoc1 + " and " + newNearbyLoc2 + "." : " along with a path that leads to " + newNearbyLoc1;
-
-   
-
-      footer.setText(footerText);
+        locs = instanceMap.getLocations();
+        keyText.setText("");
+        keyText.append("Map Key: ");
+        keyText.setRows(1);
+        for(int i = 0; i < locs.length; i++){
+          keyText.append("\n");
+          keyText.append(locs[i]);
+        }
+        HomePanel.setKeyText(locs);
+        HomePanel.setComboBoxes(locs);
+        ExplorePanel.setComboBox(locs);
+        ExplorePanel.setKeyText(locs);
+        
+        
       }else{
         JOptionPane.showMessageDialog(null,
-                                      "Please enter at least one nearby location and the distance to that location.");
-         footer.setText("You have to select at least one nearby location! Try again");
-      }
-      locs = instanceMap.getLocations();
-      keyText.setText("");
-      keyText.append("Map Key: ");
-      keyText.setRows(1);
-      for(int i = 0; i < locs.length; i++){
-        keyText.append("\n");
-        keyText.append(locs[i]);
-      }
-      HomePanel.setKeyText(locs);
-      HomePanel.setComboBoxes(locs);
-      ExplorePanel.setComboBox(locs);
-      ExplorePanel.setKeyText(locs);
-
-    
-    }else{
-      JOptionPane.showMessageDialog(null,
                                       "Please enter a Location Name");
-    
+        
+      }
     }
-  }
   }
 }
 
