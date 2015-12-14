@@ -58,7 +58,7 @@ public class Location implements Comparable<Location> {
     about = " ";
     distance = 0.0;
     try{
-      picture = ImageIO.read( new File ("wellesleylogo.png"));
+      picture = ImageIO.read( new File ("images/wellesleylogo.png"));
     }
     catch(IOException e){
       System.out.println ("picture import failed");

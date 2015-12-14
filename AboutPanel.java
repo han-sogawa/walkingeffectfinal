@@ -78,7 +78,7 @@ public class AboutPanel extends JPanel{
     picPanel.setBackground(BACKGROUND);
     picPanel.setLayout(new BoxLayout(picPanel, BoxLayout.Y_AXIS));
     try{
-      BufferedImage myPicture = ImageIO.read(new File("walkingEffectOpaque.jpg"));
+      BufferedImage myPicture = ImageIO.read(new File("images/walkingEffectOpaque.jpg"));
       ImageIcon pic = new ImageIcon(myPicture);
       Image img = pic.getImage();
       BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
