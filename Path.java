@@ -51,18 +51,6 @@ public class Path implements Comparable<Path> {
   }
   
   /**
-   * Constructs a Path object with time and distance of 0, no stairs, and no hills
-   * Pretty much just a helper method for compareTo()
-   * 
-   */ 
-  private Path(){
-    //time = 0;
-    distance = 0;
-    hasStairs = false;
-    hasHills = false;
-  }
-  
-  /**
    * Compares this path to that path. Returns a floored int of difference in time between the two paths.
    * Negative when this is a shorter walk than that. Zero when the times are equal. Positive when this is longer.
    * Takes Object type as parameter to satisfy Comparable's abstract method, returns Integer.MIN_VALUE if param not Path

@@ -14,13 +14,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.text.*;
-import javax.swing.event.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class HomePanel extends JPanel implements ComponentListener{
-  private JLabel header, origin, destination, footer;
+  private JLabel header, origin, destination;
   private JPanel navi, map;
   private static JComboBox orig, dest;
   private JButton submit;
@@ -203,8 +202,6 @@ public class HomePanel extends JPanel implements ComponentListener{
       //save combo box values as a string, if no value was chosen, the default value is 1
       String origString = orig.getSelectedItem().toString();
       String destString = dest.getSelectedItem().toString();
-      String stairsString = "Stairs an option. ";
-      String hills = "Hills an option. ";
      
       directions.setText("Directions from " + origString + " to " + destString + ". " + "\n" + m.directionsString(m.findLocation(origString), m.findLocation(destString)));
     }

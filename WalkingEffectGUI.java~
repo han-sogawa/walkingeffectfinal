@@ -26,9 +26,11 @@ public class WalkingEffectGUI{
     Map map = new WellesleyMap();
     
     //adds three tabs
-    HomePanel home = new HomePanel(map); //will pass map into home
-    AddLocationPanel addLoc = new AddLocationPanel();
+    AboutPanel about = new AboutPanel();
+    HomePanel home = new HomePanel(map);
+    AddLocationPanel addLoc = new AddLocationPanel(map);
     ExplorePanel ep = new ExplorePanel(map);
+    tp.addTab("About", about);
     tp.addTab("Home", new JScrollPane(home));
     tp.addTab("Add Location", new JScrollPane(addLoc));
     tp.addTab("Explore", new JScrollPane(ep));
@@ -39,7 +41,7 @@ public class WalkingEffectGUI{
     //adds tabbed panel to frame
     frame.getContentPane().add(tp);
     //sets size
-    frame.setPreferredSize(new Dimension(1000,500));
+    frame.setPreferredSize(new Dimension(1500,1000));
     //frame.setResizable(false);
     frame.pack();
     

@@ -1,18 +1,17 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class AddLocationPanel extends JPanel{
-  private JLabel header, enterName, nearbyLoc1, nearbyLoc2, dist1, dist2, time1, time2, hasHills, hasStairs, availLocs, footer;
+  private JLabel header, enterName, nearbyLoc1, nearbyLoc2, dist1, dist2, availLocs, footer;
   private JPanel navi, mapPic;
   private JComboBox nearbyLoc1Combo, nearbyLoc2Combo;
   private JButton add;
   private JTextArea keyText;
-  private JTextField locName, distField1, distField2, timeField1, timeField2;
+  private JTextField locName, distField1, distField2;
   private JCheckBox hasHillsCheck1, hasStairsCheck1, hasHillsCheck2, hasStairsCheck2;
   private Map instanceMap;
   private String[] locs, comboLocs;
@@ -210,7 +209,6 @@ public class AddLocationPanel extends JPanel{
       }
       footer.setText(s);
 */
-      boolean isFirstDest = false;
       boolean isSecondDest = false;
       
       newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
@@ -220,7 +218,6 @@ public class AddLocationPanel extends JPanel{
           //footer.setText("You have to enter at least one nearby location! try again");
         //newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
         if(!distField2.getText().equals("")){
-        isFirstDest = true;
         double locDist1 = Double.parseDouble(distField1.getText());
         //double timeDist1 = Double.parseDouble(timeField1.getText());
         boolean hasHills1 = hasHillsCheck1.isSelected();
