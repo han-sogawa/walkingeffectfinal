@@ -1,4 +1,4 @@
-/* 
+/****************************************************************************************  
  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
  * Writer for this file: Mary DuBard
  * 
@@ -8,7 +8,7 @@
  * Known Bugs: None
  * 
  * Class that contains Panel elements for the Home tab of the Walking Effect GUI
- */
+ ****************************************************************************************/ 
 
 import java.awt.*;
 import java.awt.event.*;
@@ -31,13 +31,13 @@ public class HomePanel extends JPanel{
   private final Color BACKGROUND = new Color(138, 226, 255); //stores background color for main panel(s)
   private final Color DIRECTIONS_BACKGROUND = new Color (204, 242, 255); //stores background color for directions
   
-  /**
+  /****************************************************************** 
    * setKeyText(String[] locs)
    * @param String array of location names
    * 
    * Sets the content of the Map Key
    * Used when user adds a new location
-   **/ 
+   ******************************************************************/ 
   public static void setKeyText(String[] locs){
     keyText.setText("Map Key: "); //resets text to title the key
     
@@ -48,13 +48,13 @@ public class HomePanel extends JPanel{
     }
   }
   
-  /**
+  /******************************************************************
    * setComboBoxes(String[] locs)
    * @param String array of location names
    * 
    * Sets the content for the dropdown menu for origin and destination
    * Used when user adds a new location
-   **/ 
+   ******************************************************************/ 
   public static void setComboBoxes(String[] locs){
     orig.removeAllItems(); //resets origin dropdown
     //adds back new locations
@@ -69,12 +69,12 @@ public class HomePanel extends JPanel{
     }
   }
   
-  /**
+  /******************************************************************
    * HomePanel Constructor
    * @param Map object
    * 
    * Creates HomePanel
-   **/ 
+   ******************************************************************/ 
   public HomePanel(Map ma){
     
     this.setBackground(BACKGROUND);
@@ -206,19 +206,19 @@ public class HomePanel extends JPanel{
     add(directions, BorderLayout.SOUTH);
   }
   
-  /**
+  /******************************************************************
    * submitListener Class
    * 
    * Used when user clicks on the submit button
-   **/ 
+   ******************************************************************/ 
   private class submitListener implements ActionListener{
-    /**
+    /******************************************************************
      * actionPerformed(ActionEvent event)
      * @param ActionEvent
      * 
      * When user clicks on submit button, gets the directions from origin to destination
      * and puts the String in the directions JTextPane at bottom of HomePanel
-     **/ 
+     ******************************************************************/ 
     public void actionPerformed(ActionEvent event){
       //Save combobox values as a string
       String origString = orig.getSelectedItem().toString();
