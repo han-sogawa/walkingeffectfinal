@@ -74,10 +74,10 @@ public class ExplorePanel extends JPanel {
     
     //sets font of text
     try{
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
-      defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(20f);
-      boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("font/fontBold.ttf")).deriveFont(20f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(30f);
+      defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(25f);
+      boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("font/fontBold.ttf")).deriveFont(30f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(22f);
     } catch (FontFormatException e){
       System.out.println ("font format exception");
     } catch (IOException i){
@@ -111,7 +111,7 @@ public class ExplorePanel extends JPanel {
     //sets up location menu, from which the user can select a location to explore
     locMenu = new JComboBox();
     locMenu.setFont(keyFont);
-    locMenu.setPreferredSize(new Dimension (250, 50));
+    locMenu.setPreferredSize(new Dimension (250, 75));
     locMenu.setMaximumSize(locMenu.getPreferredSize());
     locMenu.addItem("Select a Location");
     for(int i = 0; i < map.n(); i++){
@@ -216,7 +216,7 @@ public class ExplorePanel extends JPanel {
       
       //sets fonts for when the about infor is updated
       try{
-        boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("font/fontBold.ttf")).deriveFont(20f);
+        boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("font/fontBold.ttf")).deriveFont(25f);
       } catch (FontFormatException x){
         System.out.println ("font format exception");
       } catch (IOException i){
