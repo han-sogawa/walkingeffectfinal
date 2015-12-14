@@ -83,10 +83,10 @@ public class Map implements Graph<Location>{//, Iterator<Location>{
   }
   
   /******************************************************************
-   getLocations()
+   getLocationsCombo()
    
    returns string array of all Location names
-   Used to populate the Map Key text fields in the application GUI
+   Used to populate the Combo Boxes in the application GUI, adds a "No location selected." option 
    ******************************************************************/
   public String[] getLocationsCombo(){
     
