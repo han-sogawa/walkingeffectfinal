@@ -217,6 +217,7 @@ public class AddLocationPanel extends JPanel{
     add(mapPic, BorderLayout.EAST);
     add(footer, BorderLayout.SOUTH);
   }
+
   
   private class AddButtonListener implements ActionListener{
     private String newNearbyLoc1;

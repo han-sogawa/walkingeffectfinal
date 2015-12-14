@@ -56,18 +56,18 @@ public class ExplorePanel extends JPanel implements ComponentListener{
     //initialize everything
     chosenLocation = new Location (" ");
     
-     Font headerFont = null;
+    Font headerFont = null;
     Font defaultFont = null;
-   Font  boldFont = null;
-   Font keyFont = null;
+    Font  boldFont = null;
+    Font keyFont = null;
     
     try{
-    headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
-    defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
-    boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("fontBold.ttf")).deriveFont(20f);
-    keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
+      defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
+      boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("fontBold.ttf")).deriveFont(20f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
     } catch (FontFormatException e){
-    System.out.println ("font format exception");
+      System.out.println ("font format exception");
     } catch (IOException i){
       System.out.println("io exception");
     }
@@ -76,14 +76,16 @@ public class ExplorePanel extends JPanel implements ComponentListener{
     exploreButton = new JButton("Explore!");
     exploreButton.addActionListener(new ExploreButtonListener());
     exploreButton.setFont(defaultFont);
-        exploreButton.setPreferredSize(new Dimension (150, 50));
+    exploreButton.setPreferredSize(new Dimension (150, 50));
     exploreButton.setMaximumSize(exploreButton.getPreferredSize());
     
-
+    
     header = new JLabel("Use this menu to learn more about the locations on Wellesley's campus.", SwingConstants.CENTER);
     header.setFont(headerFont);
     JPanel headerPanel = new JPanel();
-    header.setBackground(BACKGROUND);
+
+    //header.setBackground(BACKGROUND);
+
     headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.Y_AXIS));
     headerPanel.add(Box.createRigidArea (new Dimension (5, 80)));
     headerPanel.add(header);
@@ -193,20 +195,37 @@ public class ExplorePanel extends JPanel implements ComponentListener{
   }
   
   public void componentHidden(ComponentEvent e){}
-    public void componentMoved(ComponentEvent e){}
-    public void componentResized(ComponentEvent e){}
-    //rewrite the key when tab shown again
-    public void componentShown(ComponentEvent e){
-          locations = map.getAllVertices();
-      keyText.replaceRange("Map Key: ", 0, keyText.getLineCount()-1);
-      for(int i = 0; i < locations.length; i++){
-        keyText.append("\n");
-        keyText.append(locations[i].getName());
-      }
+  public void componentMoved(ComponentEvent e){}
+  public void componentResized(ComponentEvent e){}
+  //rewrite the key when tab shown again
+  public void componentShown(ComponentEvent e){
+    locations = map.getAllVertices();
+    keyText.replaceRange("Map Key: ", 0, keyText.getLineCount()-1);
+    for(int i = 0; i < locations.length; i++){
+      keyText.append("\n");
+      keyText.append(locations[i].getName());
     }
+  }
   
   private class ExploreButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
+      
+      Font headerFont = null;
+      Font defaultFont = null;
+      Font  boldFont = null;
+      Font keyFont = null;
+      
+      try{
+        headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
+        defaultFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(20f);
+        boldFont = Font.createFont(Font.TRUETYPE_FONT, new File ("fontBold.ttf")).deriveFont(20f);
+        keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(17f);
+      } catch (FontFormatException x){
+        System.out.println ("font format exception");
+      } catch (IOException i){
+        System.out.println("io exception");
+      }
+      
       //System.out.println("action");
       String s = locMenu.getItemAt(locMenu.getSelectedIndex()).toString();
       System.out.println("Selected: " + s);
@@ -221,6 +240,7 @@ public class ExplorePanel extends JPanel implements ComponentListener{
           } 
         }
         name.setText ("You Selected:    " + chosenLocation.getName());
+        name.setFont(boldFont);
         about.setText("About:     " + chosenLocation.getAbout());
         
         ImageIcon pic = new ImageIcon(chosenLocation.getPic());
