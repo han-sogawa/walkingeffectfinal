@@ -35,12 +35,12 @@ public class AboutPanel extends JPanel{
     
     try {
       //Creates the font to use. Specify the size!
-      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(30f);
-      footerFont = Font.createFont(Font.TRUETYPE_FONT, new File("fontBold.ttf")).deriveFont(25f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")).deriveFont(23f);
+      headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(30f);
+      footerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(23f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
-      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font.ttf")));
+      ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")));
     } catch (IOException e) {
       e.printStackTrace();
     }
