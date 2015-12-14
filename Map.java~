@@ -23,7 +23,7 @@ import java.text.DecimalFormat;
 import javafoundations.*;
 
 
-public class Map implements Graph<Location>{//, Iterator<Location>{
+public class Map implements ObjectGraph<Location, Path>{//, Iterator<Location>{
   
   private int n;   // number of locations in the graph
   private Path[][] paths;   // adjacency matrix of arcs
@@ -83,10 +83,10 @@ public class Map implements Graph<Location>{//, Iterator<Location>{
   }
   
   /******************************************************************
-   getLocations()
+   getLocationsCombo()
    
    returns string array of all Location names
-   Used to populate the Map Key text fields in the application GUI
+   Used to populate the Combo Boxes in the application GUI, adds a "No location selected." option 
    ******************************************************************/
   public String[] getLocationsCombo(){
     
@@ -340,7 +340,7 @@ public class Map implements Graph<Location>{//, Iterator<Location>{
     returns true if a path contains hills
     ******************************************************************/
   public boolean hillsExist(int srcVertex, int destVertex) {
-   Path p = getPath(srcVertex, destVertex);
+   Path p = getArc(srcVertex, destVertex);
    return p.hasHills();
   }
   
@@ -350,16 +350,30 @@ public class Map implements Graph<Location>{//, Iterator<Location>{
     returns true if a path contains stairs
     ******************************************************************/
   public boolean stairsExist(int src, int dest) {
-   Path p = getPath(src, dest);
+   Path p = getArc(src, dest);
    return p.hasStairs();
   }
   
+  
+  /******************************************************************
+    getPath()
+    
+    returns the path object between the specified locations
+    ******************************************************************/
+  public Path getArc(Location srcVertex, Location destVertex) {
+    int src = getIndex(srcVertex);
+    int dest = getIndex(destVertex);
+    if(isArc(src, dest)){
+      return paths[src][dest];
+    }
+       return null;
+       }
    /******************************************************************
     getPath()
     
     returns the path object between the specified locations
     ******************************************************************/
-  public Path getPath(int src, int dest) {
+  public Path getArc(int src, int dest) {
     //int src = getIndex(srcVertex);
     //int dest = getIndex(destVertex);
     if(isArc(src, dest)){
@@ -367,6 +381,8 @@ public class Map implements Graph<Location>{//, Iterator<Location>{
     }
        return null;
        }
+  
+  
   
   /******************************************************************
     removeEdge() 
@@ -683,7 +699,7 @@ public class Map implements Graph<Location>{//, Iterator<Location>{
     String loc1 = names.pop();
     while(!names.isEmpty()){
       String loc2 = names.pop();
-      distance += getPath(getIndex(findLocation(loc1)), getIndex(findLocation(loc2))).getDistance();
+      distance += getArc(findLocation(loc1), findLocation(loc2)).getDistance();
       result += loc1 + ". \nWalk towards: ";
       if(loc2.equals(dest.getName()))
            result+= loc2 + ". \nYou have arrived!";

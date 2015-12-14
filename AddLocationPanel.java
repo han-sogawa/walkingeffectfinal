@@ -1,14 +1,14 @@
-/* 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this file: Hannah Murphy
- * 
- * File name: AddLocationPanel.java
- * Date Created: 12/11/15
- * Last Updated: 12/14/15
- * Known Bugs: None
- * 
- * Class that contains Panel elements for the Add Location tab of the Walking Effect GUI
- */
+/**************************************************************************************** 
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Writer for this file: Hannah Murphy
+  * 
+  * File name: AddLocationPanel.java
+  * Date Created: 12/11/15
+  * Last Updated: 12/14/15
+  * Known Bugs: None
+  * 
+  * Class that contains Panel elements for the Add Location tab of the Walking Effect GUI
+  *****************************************************************************************/ 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class AddLocationPanel extends JPanel{
-  private JLabel header, enterName, nearbyLoc1, nearbyLoc2, dist1, dist2, availLocs, footer;
+  private JLabel header, enterName, nearbyLoc1, nearbyLoc2, dist1, dist2, footer;
   private JPanel navi, mapPic;
   private JComboBox nearbyLoc1Combo, nearbyLoc2Combo;
   private JButton add;
@@ -28,13 +28,13 @@ public class AddLocationPanel extends JPanel{
   private String[] locs, comboLocs;
   private final Color BACKGROUND = new Color(138, 226, 255);
   
-  /**
-   * setKeyText(String[] locs)
-   * @param String array of location names
-   * 
-   * Sets the content of the Map Key
-   * Used when user adds a new location
-   **/ 
+  /*******************************************************************
+    setKeyText(String[] locs)
+    @param String array of location names
+    
+    Sets the content of the Map Key
+    Used when user adds a new location
+    *******************************************************************/
   public void setKeyText(){
     for(int i = 0; i < locs.length; i++){
       keyText.append("\n");
@@ -42,12 +42,12 @@ public class AddLocationPanel extends JPanel{
     }
   }
   
-  /**
-   * AddLocationPanel Constructor
-   * @param Map object
-   * 
-   * Creates AddLocationPanel
-   **/ 
+  /*******************************************************************
+    AddLocationPanel Constructor
+    @param Map object
+    
+    Creates AddLocationPanel
+    *******************************************************************/ 
   public AddLocationPanel(Map map){
     instanceMap = map; //stores map to instance variable
     locs = instanceMap.getLocations();
@@ -88,15 +88,18 @@ public class AddLocationPanel extends JPanel{
     header = new JLabel("\nFill in the fields below to add a custom location to your map!", SwingConstants.CENTER);
     header.setFont(headerFont);
     
+    //creates comboLocs array and stores into dropdown menus, with "No Location" option
     comboLocs = instanceMap.getLocationsCombo();
-    //initialize combo boxes, using String array ratings for values
     nearbyLoc1Combo = new JComboBox(comboLocs);
     nearbyLoc1Combo.setFont(keyFont);
     nearbyLoc2Combo = new JComboBox(comboLocs);
     nearbyLoc2Combo.setFont(keyFont);
     
+    //initializes label for location name
     enterName = new JLabel("Name of New Location: ");
     enterName.setFont(customFont);
+    
+    //creates panel for user input; helps with formatting
     JPanel locNamePanel = new JPanel();
     locNamePanel.setBackground(BACKGROUND);
     locName = new JTextField(20);
@@ -108,12 +111,23 @@ public class AddLocationPanel extends JPanel{
     nearbyLoc2 = new JLabel("Nearby Location 2: ");
     nearbyLoc2.setFont(customFont);
     
-    JPanel distField1Panel = new JPanel();
-    distField1Panel.setBackground(BACKGROUND);
+    //initializes labels for distances
     dist1 = new JLabel("Distance to Location 1 (miles): ");
     dist1.setFont(customFont);
+    dist2 = new JLabel("Distance to Location 2 (miles): ");
+    dist2.setFont(customFont);
+    
+    //creates panels for distance user input; helps with formatting
+    JPanel distField1Panel = new JPanel();
+    distField1Panel.setBackground(BACKGROUND);
     distField1 = new JTextField(10);
     distField1Panel.add(distField1);
+    JPanel distField2Panel = new JPanel();
+    distField2Panel.setBackground(BACKGROUND);
+    distField2 = new JTextField(20);
+    distField2Panel.add(distField2);
+    
+    //Creates checkboxes for path hills and stairs
     hasHillsCheck1 = new JCheckBox("The Path to Location 1 has Hills");
     hasHillsCheck1.setFont(keyFont);
     hasHillsCheck1.setBackground(BACKGROUND);
@@ -121,12 +135,6 @@ public class AddLocationPanel extends JPanel{
     hasStairsCheck1.setFont(keyFont);
     hasStairsCheck1.setBackground(BACKGROUND);
     
-    JPanel distField2Panel = new JPanel();
-    distField2Panel.setBackground(BACKGROUND);
-    dist2 = new JLabel("Distance to Location 2 (miles): ");
-    dist2.setFont(customFont);
-    distField2 = new JTextField(20);
-    distField2Panel.add(distField2);
     hasHillsCheck2 = new JCheckBox("The Path to Location 2 has Hills");
     hasHillsCheck2.setFont(keyFont);
     hasHillsCheck2.setBackground(BACKGROUND);
@@ -140,7 +148,7 @@ public class AddLocationPanel extends JPanel{
     add.addActionListener(new AddButtonListener());
     add.setFont(customFont);
     
-    //Creates panel for navigation options
+    //Creates panel for navigation options and adds content
     navi = new JPanel();
     navi.setBackground(BACKGROUND);
     navi.setLayout(new BoxLayout(navi, BoxLayout.Y_AXIS));
@@ -149,7 +157,6 @@ public class AddLocationPanel extends JPanel{
     navi.add(locNamePanel);
     
     navi.add(nearbyLoc1);
-    //navi.add(Box.createRigidArea(new Dimension(0, 5)));
     navi.add(nearbyLoc1Combo);
     navi.add(dist1);
     navi.add(distField1Panel);
@@ -188,6 +195,7 @@ public class AddLocationPanel extends JPanel{
       System.out.println(io);
     }
     
+    //creates map key
     keyText = new JTextArea(12, 20);
     keyText.setFont(keyFont);
     keyText.setMaximumSize(keyText.getPreferredSize());
@@ -199,12 +207,9 @@ public class AddLocationPanel extends JPanel{
       keyText.append(locs[i]);
     }
     
+    //makes map key scrollable and adds to map panel
     JScrollPane jp = new JScrollPane(keyText);
     jp.setMaximumSize(keyText.getPreferredSize());
-    
-    availLocs = new JLabel("Already Added Locations: ");
-    availLocs.setFont(keyFont);
-    
     mapPic.add(jp);
     
     //Initializes footer
@@ -217,69 +222,64 @@ public class AddLocationPanel extends JPanel{
     add(mapPic, BorderLayout.EAST);
     add(footer, BorderLayout.SOUTH);
   }
-
   
+  /*******************************************************************
+    AddButtonListener Class
+    
+    Used to add new location
+    *******************************************************************/
   private class AddButtonListener implements ActionListener{
     private String newNearbyLoc1;
     private String newNearbyLoc2;
     
+    /*******************************************************************
+      actionPerformed(ActionEvent event)
+      @param ActionEvent event
+      
+      When button is clicked, creates location from user's information
+      and adds to map object. Updates map key.
+      *******************************************************************/
     public void actionPerformed(ActionEvent event){
       
-      if(!locName.getText().equals("")){
-        //footer.setText("Yo");
+      if(!locName.getText().equals("")){ //if user inputted a location name
+        //Stores user's location name plus count into string
+        String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText(); 
         
-        //save combo box values as a string, if no value was chosen, the default value is 1
-        String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText();
+        Location l = new Location(newLocName); //Creates location from user's name 
+        boolean isSecondDest = false; //sets existence of nearby second location default as false
         
-        Location l = new Location(newLocName);
-        footer.setText(newLocName);
-        //instanceMap.addVertex(l);
-        /*String[] locs = instanceMap.getLocations();
-         String s = ""; 
-         for(int i = 0; i < locs.length; i++){
-         s += locs[i] + " ";
-         }
-         footer.setText(s);
-         */
-        boolean isSecondDest = false;
-        
-        newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
-        if(!newNearbyLoc1.equals("No location selected.")){
-          instanceMap.addVertex(l);
-          try{
-            //footer.setText("You have to enter at least one nearby location! try again");
-            //newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString();
-            if(!distField2.getText().equals("")){
-              double locDist1 = Double.parseDouble(distField1.getText());
-              //double timeDist1 = Double.parseDouble(timeField1.getText());
-              boolean hasHills1 = hasHillsCheck1.isSelected();
-              boolean hasStairs1 = hasStairsCheck1.isSelected();
+        newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString(); //gets string of comboloc nearby destination
+        if(!newNearbyLoc1.equals("No location selected.")){ //if user selected a location
+          try{ //try to get distance and create a path
+            if(!distField1.getText().equals("")){ //if user inputted distance
+              double locDist1 = Double.parseDouble(distField1.getText()); //stores distance into double
+              boolean hasHills1 = hasHillsCheck1.isSelected(); //whether path has hills
+              boolean hasStairs1 = hasStairsCheck1.isSelected(); //whether path has stairs
               
-              Path p = new Path(locDist1, hasStairs1, hasHills1);
-              footer.setText(p.toString());
+              Path p = new Path(locDist1, hasStairs1, hasHills1); //creates new path
+              //adds location and path
+              instanceMap.addVertex(l);
               instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc1), p);
             }else{
               JOptionPane.showMessageDialog(null,
-                                            "Enter a valid distance to Destination 1.");
+                                            "Enter a distance to Destination 1.");
             }
           }catch(NullPointerException e){
-            System.out.println("You must enter valid input");
+            System.out.println("You must enter valid input.");
           }catch(NumberFormatException n){
             JOptionPane.showMessageDialog(null,
                                           "Enter a valid number for the distance!");
           }
           
-          
-          
+          //Attempts to do same process above for second location. If second nearby location isn't provided,
+          //moves on.
           newNearbyLoc2 = nearbyLoc2Combo.getSelectedItem().toString();
           System.out.println(newNearbyLoc2.equals("No location selected."));
           if(!newNearbyLoc2.equals("No location selected.")){
             try{
               isSecondDest = true;
-              //footer.setText("You have to enter at least one nearby location! try again");
               if(!distField2.getText().equals("")){
                 double locDist2 = Double.parseDouble(distField2.getText());
-                //double timeDist1 = Double.parseDouble(timeField1.getText());
                 boolean hasHills2 = hasHillsCheck2.isSelected();
                 boolean hasStairs2 = hasStairsCheck2.isSelected();
                 
@@ -287,26 +287,29 @@ public class AddLocationPanel extends JPanel{
                 instanceMap.addEdge(l, instanceMap.findLocation(newNearbyLoc2), p);
               }else{
                 JOptionPane.showMessageDialog(null,
-                                              "Enter a valid distance to Destination 2.");
+                                              "Enter a distance to Destination 2.");
               }
             }catch(NullPointerException e){
               System.out.println("You must enter valid input.");
             }catch(NumberFormatException n){
-              System.out.println("You must enter valid input");
+              System.out.println("You must enter valid input.");
             }
           }
+          
+          //Sets footer text to represent that new location and path(s) have been added
           String footerText =  "New Location \"" + l.toString() + "\" has been added to the map,";
-          footerText += isSecondDest ? " along with paths that lead to " + newNearbyLoc1 + " and " + newNearbyLoc2 + "." : " along with a path that leads to " + newNearbyLoc1;
-          
-          
+          footerText += isSecondDest ? " along with paths that lead to " + newNearbyLoc1 + " and " 
+            + newNearbyLoc2 + "." : " along with a path that leads to " + newNearbyLoc1;
           
           footer.setText(footerText);
         }else{
-          JOptionPane.showMessageDialog(null,
-                                        "Please enter at least one nearby location and the distance to that location.");
-          footer.setText("You have to select at least one nearby location! Try again");
+          JOptionPane.showMessageDialog(null, "Please enter at least one nearby location and the distance to that location.");
+          footer.setText("You have to select at least one nearby location! Try again.");
         }
+        
         locs = instanceMap.getLocations();
+        
+        //resets AddLocation map key with new locations
         keyText.setText("");
         keyText.append("Map Key: ");
         keyText.setRows(1);
@@ -314,16 +317,14 @@ public class AddLocationPanel extends JPanel{
           keyText.append("\n");
           keyText.append(locs[i]);
         }
+        
+        //resets HomePanel and ExplorePanel location lists
         HomePanel.setKeyText(locs);
         HomePanel.setComboBoxes(locs);
         ExplorePanel.setComboBox(locs);
         ExplorePanel.setKeyText(locs);
-        
-        
       }else{
-        JOptionPane.showMessageDialog(null,
-                                      "Please enter a Location Name");
-        
+        JOptionPane.showMessageDialog(null, "Please enter a Location Name.");
       }
     }
   }
