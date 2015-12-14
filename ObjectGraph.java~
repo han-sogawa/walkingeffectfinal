@@ -36,36 +36,6 @@ public interface ObjectGraph<T, M>{
     Inserts an arc from srcVertex to destVertex.
     If the vertices exist, else does not change the graph. 
     ******************************************************************/
-  public void addArc(T srcVertex, T destVertex, M arc);
-  
-  /******************************************************************
-    addEdge()
-    
-    Inserts an edge between two vertices of the graph.
-    If one or both vertices do not exist, ignores the addition.
-    Adds the same M to both arcs placements in the adjacency matrix
-    ******************************************************************/
-  public void addEdge(T vertex1, T vertex2, M edge);
+  public void addArc(T srcVertex, T destVertex, M newPath);
  
-    /******************************************************************
-    isArc()
-    
-    returns true if an arc exists between the two passed vertices
-    ******************************************************************/
-   public boolean isArc(T srcVertex, T destVertex);
-
-  /******************************************************************
-    isEdge()
-    
-    returns true if an edge exists between the two passed vertices (both ways)
-    ******************************************************************/
-  public boolean isEdge(T srcVertex, T destVertex);
-  
-  /******************************************************************
-    getArc()
-    
-    returns the M object between the specified locations
-    ******************************************************************/
-  public Path getArc(int src, int dest);
-    
 }
