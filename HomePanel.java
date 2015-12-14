@@ -29,6 +29,8 @@ public class HomePanel extends JPanel implements ComponentListener{
   private String[] locs;
   private Map m;
   
+  private final Color BACKGROUND = new Color(138, 226, 255);
+  
   public static void setKeyText(String[] locs){
     keyText.setText("");
     keyText.append("Map Key: ");
@@ -55,6 +57,9 @@ public class HomePanel extends JPanel implements ComponentListener{
   }
   
   public HomePanel(Map ma){
+    
+    this.setBackground(BACKGROUND);
+    
     //on load reload locs?
     m = ma;
     setLayout (new BorderLayout());
@@ -105,6 +110,7 @@ public class HomePanel extends JPanel implements ComponentListener{
     
     //Creates panel for navigation options
     navi = new JPanel();
+    navi.setBackground(BACKGROUND);
     navi.setLayout(new BoxLayout(navi, BoxLayout.Y_AXIS));
     navi.add(Box.createRigidArea(new Dimension(0, 50)));
     navi.add(origin);
@@ -119,6 +125,7 @@ public class HomePanel extends JPanel implements ComponentListener{
     
     //creates panel for map and key
     map = new JPanel();
+    map.setBackground(BACKGROUND);
     map.setLayout(new BoxLayout(map, BoxLayout.X_AXIS));
     //map.add(Box.createRigidArea(new Dimension(100, 0)));
     
