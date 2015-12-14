@@ -17,7 +17,7 @@ import java.text.DecimalFormat;
 import javafoundations.*;
 
 
-public class Map implements ObjectGraph<Location, Path>{//, Iterator<Location>{
+public class Map implements ObjectGraph<Location, Path>{
   
   private int n;   // number of locations in the graph
   private Path[][] paths;   // adjacency matrix of arcs
@@ -260,36 +260,6 @@ public class Map implements ObjectGraph<Location, Path>{//, Iterator<Location>{
     }
   }
   
-  /*****************************************************************
-    addEdge()
-    
-    Not used - only fulfills requirement in Graph interface
-    ***************************************************************/
-  
-  public void addEdge(Location vertex1, Location vertex2) { //also add path parameters
-    int index1 = getIndex(vertex1);
-    int index2 = getIndex(vertex2);
-    if (index1 != NOT_FOUND && index2 != NOT_FOUND) {
-      Path edge = new Path(NOT_FOUND, false, false);
-      addArc(index1, index2, edge);
-      addArc(index2, index1, edge);
-    }
-  }
-  
-  /******************************************************************
-    addArc()
-    
-    Not used - only fulfills requirement in Graph interface
-    ******************************************************************/
-  public void addArc(Location srcVertex, Location destVertex){//, Path edge) { //add path variables
-    int src = getIndex(srcVertex);
-    int dest = getIndex(destVertex);
-    if (src != NOT_FOUND && dest != NOT_FOUND) {
-      Path edge = new Path(NOT_FOUND, false, false);
-      addArc(src, dest, edge);
-    }
-  }
-  
   /******************************************************************
     isArc()
     
@@ -361,6 +331,7 @@ public class Map implements ObjectGraph<Location, Path>{//, Iterator<Location>{
     }
        return null;
        }
+  
    /******************************************************************
     getPath()
     
@@ -721,17 +692,6 @@ public class Map implements ObjectGraph<Location, Path>{//, Iterator<Location>{
     return Double.valueOf(twoDForm.format(d));
   }
   
-  
-  ////////////////////UNSUPPORTED METHODS///////////////////////
-  
-  /******************************************************************
-   saveTGF()
-   
-   Not used - only fulfills requirement in Graph interface
-   ******************************************************************/
-  public void saveTGF(String tgf_file_name){
-    throw new UnsupportedOperationException();
-  }
   
   
   //////////////////////////TOSTRING///////////////////////////////
