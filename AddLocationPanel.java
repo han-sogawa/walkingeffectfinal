@@ -341,6 +341,15 @@ public class AddLocationPanel extends JPanel{
           keyText.append(locs[i]);
         }
         
+        nearbyLoc1Combo.removeAllItems(); //clears box
+    for(int i = 0; i < locs.length; i++){ //adds the items back in, including the one that was just added
+      nearbyLoc1Combo.addItem(locs[i]);
+    }
+     nearbyLoc2Combo.removeAllItems(); //clears box
+    for(int i = 0; i < locs.length; i++){ //adds the items back in, including the one that was just added
+      nearbyLoc2Combo.addItem(locs[i]);
+    }
+    
         //resets FindRoutePanel and ExplorePanel location lists
         FindRoutePanel.setKeyText(locs);
         FindRoutePanel.setComboBoxes(locs);
