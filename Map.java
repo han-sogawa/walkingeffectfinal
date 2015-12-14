@@ -638,18 +638,18 @@ public class Map implements ObjectGraph<Location, Path>{
     boolean hasStairs = false;
     boolean hasHills = false;
     if(orig.equals(dest))
-      return "You're already there! Check out the Explore panel to get more information.";
-    int[] directions = getDirections(orig, dest);
-    LinkedStack<String> names = new LinkedStack<String>();
-    int temp = getIndex(dest);
-    System.out.println("temp (outside loop): " + temp);
-    while(temp!= -1){
+      return "You're already there! Check out the Explore panel to get more information."; //if the origin and destination are the same, print this
+    int[] directions = getDirections(orig, dest); // gets the pttern of vertices that is the optimal path between the two locations, represented by an integer array
+    LinkedStack<String> names = new LinkedStack<String>(); //this will hold the names of the locations in the directions
+    int temp = getIndex(dest); 
+    //System.out.println("temp (outside loop): " + temp);
+    while(temp!= -1){ //gets the names of each location in the path
       names.push(getVertex(temp).getName());//push the temp index into the list
-      System.out.println("Pushed into List: " + getVertex(temp).getName());
-      int previous = temp;
-      temp = directions[temp];
-      System.out.println("temp (inside loop): " + temp);
-      if(previous != -1 && temp != -1){
+     // System.out.println("Pushed into List: " + getVertex(temp).getName());
+      int previous = temp; //keeps track of previous 
+      temp = directions[temp]; 
+      //System.out.println("temp (inside loop): " + temp);
+      if(previous != -1 && temp != -1){ //marks has stairs and has hills as true if any of the paths contain stairs or hills
         if(stairsExist(previous, temp))
           hasStairs = true;
         if(hillsExist(previous, temp))
@@ -662,7 +662,7 @@ public class Map implements ObjectGraph<Location, Path>{
     
     String result = "Exit ";
     String loc1 = names.pop();
-    while(!names.isEmpty()){
+    while(!names.isEmpty()){ //calculates distance and appends string representation of directions
       String loc2 = names.pop();
       distance += getArc(findLocation(loc1), findLocation(loc2)).getDistance();
       result += loc1 + ". \nWalk towards: ";
@@ -670,10 +670,11 @@ public class Map implements ObjectGraph<Location, Path>{
         result+= loc2 + ". \nYou have arrived!";
       loc1 = loc2;       
     }
-    result += "\nYour trip is " + roundTwoDecimals(distance) + " miles and approximately " + calculateTime(distance) + " minutes.";
+    //appends distance and approvximate time of the path to the string
+    result += "\nYour trip is " + roundTwoDecimals(distance) + " miles and approximately " + calculateTime(distance) + " minutes."; 
     
     
-    if(hasStairs && hasHills)
+    if(hasStairs && hasHills) //uses marks to tell user if the route has stairs/hills
       result += " \nThis path contains stairs and hills.";
     else if(hasHills)
       result += " \nThis path contains hills.";
@@ -684,10 +685,20 @@ public class Map implements ObjectGraph<Location, Path>{
     return result;
   }
   
+  /******************************************************************
+    calculateTime()
+    
+    calculates the approximate walking time of the user to their location
+    ******************************************************************/
   private double calculateTime(double distance){
     return roundTwoDecimals(distance * MIN_IN_HOUR / WALKING_MPH);
   }
   
+  /******************************************************************
+    roundTwoDecimals()
+    
+    Formats a passed double into a number in this style: #.## and returns the formatted number
+    ******************************************************************/
   private double roundTwoDecimals(double d){
     DecimalFormat twoDForm = new DecimalFormat("#.##");
     return Double.valueOf(twoDForm.format(d));
