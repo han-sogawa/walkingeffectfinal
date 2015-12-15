@@ -212,7 +212,7 @@ public class AddLocationPanel extends JPanel{
     catch(IOException io){
       System.out.println(io);
     }
-       
+    
     //Creates panel for keyText and keyLabel
     JPanel keyPanel = new JPanel();
     keyPanel.setBackground(BACKGROUND);
@@ -276,7 +276,7 @@ public class AddLocationPanel extends JPanel{
         //Stores user's location name plus count into string
         String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText(); 
         
-         
+        
         boolean isSecondDest = false; //sets existence of nearby second location default as false
         
         newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString(); //gets string of comboloc nearby destination
@@ -355,31 +355,31 @@ public class AddLocationPanel extends JPanel{
         
         comboLocs = instanceMap.getLocationsCombo();
         nearbyLoc1Combo.removeAllItems(); //clears box
-    for(int i = 0; i < comboLocs.length; i++){ //adds the items back in, including the one that was just added
-      nearbyLoc1Combo.addItem(comboLocs[i]);
-    }
-     nearbyLoc2Combo.removeAllItems(); //clears box
-    for(int i = 0; i < comboLocs.length; i++){ //adds the items back in, including the one that was just added
-      nearbyLoc2Combo.addItem(comboLocs[i]);
-    }
-    
-    //clear all fields
-    locName.setText("");
-    distField1.setText("");
-    distField2.setText("");
-    nearbyLoc1Combo.setSelectedItem("No location selected.");
-    nearbyLoc2Combo.setSelectedItem("No location selected.");
-    hasHillsCheck1.setSelected(false);
-    hasStairsCheck1.setSelected(false);
-    hasHillsCheck2.setSelected(false);
-    hasStairsCheck2.setSelected(false);
-    aboutInfo.setText("");
-    
-    //resets FindRoutePanel and ExplorePanel location lists
-    FindRoutePanel.setKeyText(locs);
-    FindRoutePanel.setComboBoxes(locs);
-    ExplorePanel.setComboBox(locs);
-    ExplorePanel.setKeyText(locs);
+        for(int i = 0; i < comboLocs.length; i++){ //adds the items back in, including the one that was just added
+          nearbyLoc1Combo.addItem(comboLocs[i]);
+        }
+        nearbyLoc2Combo.removeAllItems(); //clears box
+        for(int i = 0; i < comboLocs.length; i++){ //adds the items back in, including the one that was just added
+          nearbyLoc2Combo.addItem(comboLocs[i]);
+        }
+        
+        //clear all fields after successfully added 
+        locName.setText("");
+        distField1.setText("");
+        distField2.setText("");
+        nearbyLoc1Combo.setSelectedItem("No location selected.");
+        nearbyLoc2Combo.setSelectedItem("No location selected.");
+        hasHillsCheck1.setSelected(false);
+        hasStairsCheck1.setSelected(false);
+        hasHillsCheck2.setSelected(false);
+        hasStairsCheck2.setSelected(false);
+        aboutInfo.setText("");
+        
+        //resets FindRoutePanel and ExplorePanel location lists
+        FindRoutePanel.setKeyText(locs);
+        FindRoutePanel.setComboBoxes(locs);
+        ExplorePanel.setComboBox(locs);
+        ExplorePanel.setKeyText(locs);
       }else{
         JOptionPane.showMessageDialog(null, "Please enter a Location Name.");
       }
