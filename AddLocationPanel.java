@@ -69,8 +69,8 @@ public class AddLocationPanel extends JPanel{
     try {
       //create the font to use. Specify the size!
       headerFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(30f);
-      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(25f);
-      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(22f);
+      customFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")).deriveFont(20f);
+      keyFont = Font.createFont(Font.TRUETYPE_FONT, new File("font/font.ttf")).deriveFont(17f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("font/fontBold.ttf")));
@@ -212,7 +212,7 @@ public class AddLocationPanel extends JPanel{
     catch(IOException io){
       System.out.println(io);
     }
-       
+    
     //Creates panel for keyText and keyLabel
     JPanel keyPanel = new JPanel();
     keyPanel.setBackground(BACKGROUND);
@@ -276,7 +276,7 @@ public class AddLocationPanel extends JPanel{
         //Stores user's location name plus count into string
         String newLocName = "(" + (instanceMap.n() + 1) + ") " + locName.getText(); 
         
-         
+        
         boolean isSecondDest = false; //sets existence of nearby second location default as false
         
         newNearbyLoc1 = nearbyLoc1Combo.getSelectedItem().toString(); //gets string of comboloc nearby destination
@@ -353,15 +353,28 @@ public class AddLocationPanel extends JPanel{
           keyText.append(locs[i]);
         }
         
+        comboLocs = instanceMap.getLocationsCombo();
         nearbyLoc1Combo.removeAllItems(); //clears box
-    for(int i = 0; i < locs.length; i++){ //adds the items back in, including the one that was just added
-      nearbyLoc1Combo.addItem(locs[i]);
-    }
-     nearbyLoc2Combo.removeAllItems(); //clears box
-    for(int i = 0; i < locs.length; i++){ //adds the items back in, including the one that was just added
-      nearbyLoc2Combo.addItem(locs[i]);
-    }
-    
+        for(int i = 0; i < comboLocs.length; i++){ //adds the items back in, including the one that was just added
+          nearbyLoc1Combo.addItem(comboLocs[i]);
+        }
+        nearbyLoc2Combo.removeAllItems(); //clears box
+        for(int i = 0; i < comboLocs.length; i++){ //adds the items back in, including the one that was just added
+          nearbyLoc2Combo.addItem(comboLocs[i]);
+        }
+        
+        //clear all fields after successfully added 
+        locName.setText("");
+        distField1.setText("");
+        distField2.setText("");
+        nearbyLoc1Combo.setSelectedItem("No location selected.");
+        nearbyLoc2Combo.setSelectedItem("No location selected.");
+        hasHillsCheck1.setSelected(false);
+        hasStairsCheck1.setSelected(false);
+        hasHillsCheck2.setSelected(false);
+        hasStairsCheck2.setSelected(false);
+        aboutInfo.setText("");
+        
         //resets FindRoutePanel and ExplorePanel location lists
         FindRoutePanel.setKeyText(locs);
         FindRoutePanel.setComboBoxes(locs);
