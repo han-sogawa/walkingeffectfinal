@@ -39,7 +39,7 @@ public class FindRoutePanel extends JPanel{
     * Used when user adds a new location
     ******************************************************************/ 
   public static void setKeyText(String[] locs){
-    keyText.setText("Map Key: "); //resets text to title the key
+    keyText.setText(""); //resets text
     
     //Adds locations to key
     for(int i = 0; i < locs.length; i++){
@@ -147,7 +147,7 @@ public class FindRoutePanel extends JPanel{
     navi.add(submit);
     navi.add(Box.createRigidArea (new Dimension (0, 100)));
     
-    //creates panel for map and key
+    //creates panel for map and keyPanel
     map = new JPanel();
     map.setBackground(BACKGROUND);
     map.setLayout(new BoxLayout(map, BoxLayout.X_AXIS));
@@ -168,21 +168,32 @@ public class FindRoutePanel extends JPanel{
       System.out.println(io);
     }
     
-    //creates map key
-    keyText = new JTextArea(12, 20);
+    //creates keyPanel for keyLabel and keyText
+    JPanel keyPanel = new JPanel();
+    keyPanel.setBackground(BACKGROUND);
+    keyPanel.setLayout(new BoxLayout(keyPanel, BoxLayout.Y_AXIS));
+    
+    //creates keyLabel
+    JLabel keyLabel = new JLabel("Map Key:");
+    keyLabel.setFont(customFont);
+    keyPanel.add(keyLabel);
+    
+    //creates keyText
+    keyText = new JTextArea(12, 30);
     keyText.setMaximumSize(keyText.getPreferredSize());
     keyText.setEditable(false);
-    keyText.append("Map Key: ");
     for(int i = 0; i < locs.length; i++){
       keyText.append("\n");
       keyText.append(locs[i]);
     }
     keyText.setFont(keyFont);
     
-    //makes map key scrollable and adds to map panel
+    //makes map key scrollable and adds to keyPanel
     JScrollPane jp = new JScrollPane(keyText);
     jp.setMaximumSize(keyText.getPreferredSize());
-    map.add(jp);
+    keyPanel.add(jp);
+    
+    map.add(keyPanel);
     
     //Initializes footer to hold directions
     directions = new JTextPane();
