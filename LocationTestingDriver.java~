@@ -1,23 +1,23 @@
-/**
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Author for this class: Alyssa Rivera
- * File Name: LocationTestingDriver.java
- * Created: December 8th, 2015
- * Updated: December 8th, 2015
- * Known bugs: None
- * 
- * Tests the Location class and methods
- * 
- */ 
+/*************************************************************************************
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Alyssa Rivera
+  * 
+  * File Name: LocationTestingDriver.java
+  * Created: 12/8/15
+  * Last Updated: 12/8/15
+  * Known Bugs: None
+  * 
+  * Tests the Location class and methods
+  *************************************************************************************/ 
 
 public class LocationTestingDriver{
   public static void main (String[] args){
-  
+    
     Location a = new Location("Science Center");
     System.out.println (a);
     
     Location b = new Location ("Tower Court", "I am a res hall with the most students on campus and a bangin' Great Hall"
-                              , "towerCourt.jpg");
+                                 , "towerCourt.jpg");
     System.out.println(b);
     
     System.out.println("A's about ( ):\t" + a.getAbout());
@@ -26,5 +26,5 @@ public class LocationTestingDriver{
     System.out.println (a);
     
   }
- 
+  
 }

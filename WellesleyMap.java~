@@ -1,61 +1,61 @@
-/* 
- * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
- * Writer for this Class: Mary DuBard
- * 
- * File name: WellesleyMap.java
- * Date Created: 12/12/15
- * Last Updated: 12/12/15
- * 
- * Class that creates Map object specific to Wellesley
- */
+/************************************************************************************* 
+  * Team: Mary DuBard, Hannah Murphy, Alyssa Rivera
+  * Author of this File: Mary DuBard
+  * 
+  * File Name: WellesleyMap.java
+  * Created: 12/12/15
+  * Last Updated: 12/12/15
+  * Known Bugs: None
+  * 
+  * Class that creates Map object specific to Wellesley
+  *************************************************************************************/
 import java.util.*;
 
 public class WellesleyMap extends Map{
   public WellesleyMap(){
-    //Create locations for Wellesley Map
-    //Location(name, about, picture file)
+    //Create locations for Wellesley Map: Location(name, about, picture file)
     Location ksc = new Location("(1) Sports Center", "Nannerl O. Keohane Sports Center, named for Nannerl" 
-                                + "Keohane '61 (Wellesley president, 1981-1993), is the focal point for recreation and "
+                                  + "Keohane '61 (Wellesley president, 1981-1993), is the focal point for recreation and "
                                   + "fitness at Wellesley College.  The Sports Center is home to 14 varsity athletics teams,"
                                   + "a diverse physical education curriculum, and a wide variety of recreational, intramural, and "
-                                  + "wellness activities for the entire College community.", "pic1ksc.jpg");
+                                  + "wellness activities for the entire College community.", "images/pic1ksc.jpg");
     Location resQ = new Location("(2) Res Quad", "The Quad is made up of four dorms: Beebe, Cazenove, Pomeroy, and Shafer Halls."
-                                + " The halls in the Quad are known for their convenient location and fun atmosphere. " 
-                                + "One of the trickiest things about the Quad can be simply remembering which building is which - "
-                                + "so something helpful to keep in mind is that the halls are in alphabetical order.", "pic2resQ.jpg");
+                                   + " The halls in the Quad are known for their convenient location and fun atmosphere. " 
+                                   + "One of the trickiest things about the Quad can be simply remembering which building is which - "
+                                   + "so something helpful to keep in mind is that the halls are in alphabetical order.", "images/pic2resQ.jpg");
     Location alum = new Location("(3) Alumnae Hall", "The Diana Chapman Walsh Alumnae Hall houses the Theatre Studies Department, "
                                    + "a 1300-seat auditorium, a black box theatre, and a ballroom for dance rehearsals, parties, and aerobics. "
-                                   + "Many campus performances and events are held here.", "pic3alum.jpg");
+                                   + "Many campus performances and events are held here.", "images/pic3alum.jpg");
     Location lulu = new Location("(4) Lulu", "The Lulu Chow Wang Campus Center, with its labyrinth-like layout and unexpected open spaces, "
                                    + "provides an inviting place where members of the Wellesley community can gather for impromptu conversation "
                                    + "or more formal meetings of the College's 160 student organizations and College Government. The 'Lulu' houses "
                                    + "a bookstore, dining area and coffee bar, cafe and pub, large multipurpose spaces for performances and social "
-                                   + "functions, and meeting rooms.", "pic4lulu.jpg");
+                                   + "functions, and meeting rooms.", "images/pic4lulu.jpg");
     Location acaQ = new Location("(5) Acad Quad", "Pendleton Hall, Founders Hall, and the Jewett Arts Center make up the heart of the Academic Quad, "
                                    + "where most of Wellesley's classes, except for the sciences, meet. These three buildings house all of the "
-                                   + "social science, art, and humanities departments.", "pic5acaQ.jpg");
+                                   + "social science, art, and humanities departments.", "images/pic5acaQ.jpg");
     Location sciCen = new Location("(6) Science Center", "The Science Center comprises four buildings: the Margaret Fergusson Greenhouses; Sage Hall; "
                                      + "the Laboratory Wing; and the E-wing.  The Science Center serves as the home of Science, Technology, Engineering, "
                                      + "and Mathematics at Wellesley College, and houses all the science departments and programs offered at the "
-                                     + "College.", "pic6sciCen.jpg");
+                                     + "College.", "images/pic6sciCen.jpg");
     Location twr = new Location("(7) Tower Court", "Made up of Tower Court and Severance and Claflin Halls, the Tower Complex is generally"
                                   + "considered to contain some of the more social dorms on campus (which isn't to say, of course, that all"
                                   + " the dorms aren't social, in their own ways - but there does tend to be a little more noise and activity"
                                   + " in the hallways in these dorms). And of course, the halls that make up Tower Court are some of the most "
                                   + "beautiful buildings on campus. Given its lovely courtyard, lake views, and Elizabethan Gothic and "
                                   + "Georgian-style architecture, it's no wonder that Tower Court is the dorm that you probably saw the most "
-                                  + "pictures of in the Admissions literature!", "pic7twr.jpg");
+                                  + "pictures of in the Admissions literature!", "images/pic7twr.jpg");
     Location lib = new Location("(8) Library", "Named for Wellesley's eighth president, the Margaret Clapp Library is the centerpiece of the "
                                   + "College library system, which contains over a million volumes. The entire system is fully automated, with an "
-                                  + "online catalog that can be accessed 24 hours a day.", "pic8lib.jpg");
+                                  + "online catalog that can be accessed 24 hours a day.", "images/pic8lib.jpg");
     Location stone = new Location("(9) Stone-Davis", "The original Stone Hall was destroyed by fire in 1927. When rebuilt, the name “Davis” was added to "
                                     + "honor Olive Davis, a Head of House whose insistence on regular fire drills saved the lives of many students. "
-                                    + "This is the dorm that Hillary Clinton lived in all four years during her time at Wellesley.", "pic9stone.jpg");
+                                    + "This is the dorm that Hillary Clinton lived in all four years during her time at Wellesley.", "images/pic9stone.jpg");
     Location east = new Location("(10) East Campus Dorms", "The East Campus residential complex is usually referred to as the 'New Dorms' - although, that's "
                                    + "sort of a misnomer, given that they were built in the 1950s and 60s. The residence halls that make up the New Dorms "
                                    + "are Freeman, Bates, and McAfee. Though the New Dorms are more box-like than castle-like in terms of architecture, "
                                    + "they more than make up for that with the size of their rooms, which are by and large bigger than in any other "
-                                   + "dorm.", "pic10east.jpg");
+                                   + "dorm.", "images/pic10east.jpg");
     
     //Add locations to Wellesley Map
     addVertex(ksc);
