@@ -56,7 +56,7 @@ public class WellesleyMap extends Map{
                     + "The entire system is fully automated, with an online catalog that can be accessed "
                     + "24 hours a day.", "images/pic8lib.jpg");
     Location stone = new Location("(9) Stone-Davis", "The original Stone Hall was destroyed by fire in 1927. "
-                   + "When rebuilt, the name “Davis” was added to honor Olive Davis, a Head of House whose "
+                   + "When rebuilt, the name Davis was added to honor Olive Davis, a Head of House whose "
                    + "insistence on regular fire drills saved the lives of many students. This is the dorm where "
                    + " Hillary Clinton lived all four years during her time at Wellesley.", "images/pic9stone.jpg");                 
     Location east = new Location("(10) East Campus Dorms", "The East Campus residential complex is usually "
