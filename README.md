@@ -1,7 +1,7 @@
 # The Walking Effect
 *Contributors: Hannah Murphy, Mary DuBard, and Alyssa Rivera*
 
-The Walking Effect is a Java GUI that provides the user with a way of finding the quickest route from one location to another on Wellesley College's campus. The classes provided here can be applied to any college campus, park, or even city with adjustments to the driver class. 
+The Walking Effect is a Java GUI that provides the user with a way of finding the quickest route from one location to another on Wellesley College's campus. **The classes provided here can be applied to any college campus, park, or even city with adjustments to the driver class.**
 
 This app uses our own implementation on Dijkstra's algorithm to find the optimal path between two locations, and a Map class that we created to hold the relevent information and provide functionality.
 
@@ -11,7 +11,7 @@ To run the Walking Effect:
 Unzip the walkingeffect folder. Do a quick once-over of the files you just 
 downloaded, and make sure all of the below files are there.
  
-**Run the Program:*
+**Run the Program:**
 After ensuring that all the necessary classes are in the same folder, locate the WalkingEffectGUI.java file. Open the file in your favorite text editor (such as DrJava) and compile it. If you have trouble compiling the file, make sure you are using a compatible compiler (the creators of the Walking Effect used JDK 6.0_6.5 or the Eclipse Compiler to develop this project). If you are still having trouble, contact one of the creators of the Walking Effect.
  
 **Enjoy:**
