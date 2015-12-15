@@ -1,5 +1,5 @@
 //*******************************************************************
-//  MaxHeap.java       Java Foundations
+//  MinHeap.java       Java Foundations
 //
 //  Defines the interface to a min heap.
 //*******************************************************************

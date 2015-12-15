@@ -10,11 +10,11 @@ import javafoundations.exceptions.*;
 
 public class PriorityQueue<T extends Comparable<T>> implements Queue<T>
 {
- private LinkedMaxHeap<T> heap;
+ private LinkedMinHeap<T> heap;
  
  public PriorityQueue()
  {
-  heap = new LinkedMaxHeap<T>();
+  heap = new LinkedMinHeap<T>();
  }
  public void enqueue(T element)
  {
@@ -25,7 +25,7 @@ public class PriorityQueue<T extends Comparable<T>> implements Queue<T>
  {
   try
   {
-   T temp = heap.removeMax();
+   T temp = heap.removeMin();
    return temp;
   }
   catch(EmptyCollectionException ece)
@@ -37,7 +37,7 @@ public class PriorityQueue<T extends Comparable<T>> implements Queue<T>
  
  public T first()
  {
-  return heap.getMax();
+  return heap.getMin();
  }
  
  public boolean isEmpty()
@@ -53,5 +53,42 @@ public class PriorityQueue<T extends Comparable<T>> implements Queue<T>
  public String toString()
  {
   return heap.toString();
+ }
+ 
+  public void reorder(){
+    if (heap.getMin() == null)
+      throw new EmptyCollectionException ("Reorder operation " +
+                                          "failed. Tree is empty.");
+    
+    T holdRoot = null;
+    LinkedMinHeap<T> temp = new LinkedMinHeap<T>();
+    while(!heap.isEmpty()){
+      temp.add(heap.removeMin());
+    }
+    heap = temp;
+    /*
+    
+    do{
+      if(holdRoot != null){
+      holdRoot = heap.getMin();
+      temp.add(holdRoot);
+      heap.removeMin();
+      }
+    }while(holdRoot != null);
+    heap = temp;*/
+
+  }
+ 
+ public static void main(String[] args){
+   PriorityQueue pq = new PriorityQueue();
+   pq.enqueue(5);
+   pq.enqueue(5);
+   pq.enqueue(6);
+   pq.enqueue(4);
+   pq.enqueue(1);
+   pq.enqueue(8);
+   pq.enqueue(3);
+   pq.dequeue();
+   System.out.println(pq);
  }
 }

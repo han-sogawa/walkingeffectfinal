@@ -2,8 +2,10 @@
 //   PriorityQueue.java         Java Foundations
 //
 //   A data structure that works like a queue, but instead of 
-//   FIFO, always dequeues the item with the highest priority.
-//   Uses a maxheap to store and sort items.
+//   FIFO, always dequeues the item with the highest priority. 
+//   This PriorityQueue uses a minheap instead of a maxheap to
+//   prioritize paths with shorter distances. Uses a minheap to 
+//   store and sort items.
 // ***************************************************************
 package javafoundations;
 import javafoundations.exceptions.*;
@@ -66,17 +68,6 @@ public class PriorityQueue<T extends Comparable<T>> implements Queue<T>
       temp.add(heap.removeMin());
     }
     heap = temp;
-    /*
-    
-    do{
-      if(holdRoot != null){
-      holdRoot = heap.getMin();
-      temp.add(holdRoot);
-      heap.removeMin();
-      }
-    }while(holdRoot != null);
-    heap = temp;*/
-
   }
  
  public static void main(String[] args){

@@ -62,7 +62,7 @@ public class MinHeapNode<T extends Comparable<T>> extends BTNode<T>
    }
 
    //-----------------------------------------------------------------
-   //  Moves a newly added leaft up the tree as far as appopriate to
+   //  Moves a newly added leaf up the tree as far as appropriate to
    //  reestablish the heap.
    //-----------------------------------------------------------------
    public void heapifyAdd (MinHeapNode<T> last)
@@ -106,7 +106,7 @@ public class MinHeapNode<T extends Comparable<T>> extends BTNode<T>
    {
       T temp;
       MinHeapNode<T> current = root;
-      MinHeapNode<T> next = largerChild (current);
+      MinHeapNode<T> next = smallerChild (current);
 
       while (next != null && next.element.compareTo(current.element) < 0)
       {

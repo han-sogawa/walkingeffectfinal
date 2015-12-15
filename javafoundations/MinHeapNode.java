@@ -1,5 +1,5 @@
 //*******************************************************************
-//  HeapNode.java       Java Foundations
+//  MinHeapNode.java       Java Foundations
 //
 //  Represents a node, and the root of a subtree, in a heap.
 //*******************************************************************

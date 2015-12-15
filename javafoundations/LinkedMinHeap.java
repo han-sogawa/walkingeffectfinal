@@ -1,7 +1,7 @@
 //*******************************************************************
-//  LinkedMaxHeap.java        Java Foundations
+//  LinkedMinHeap.java        Java Foundations
 //
-//  Implements a max heap using a linked representation.
+//  Implements a min heap using a linked representation.
 //*******************************************************************
 
 package javafoundations;
@@ -15,7 +15,7 @@ public class LinkedMinHeap<T extends Comparable<T>>
   private MinHeapNode<T> last;
   
   //-----------------------------------------------------------------
-  //  Creates a max heap with the specified element as its root.
+  //  Creates a min heap with the specified element as its root.
   //-----------------------------------------------------------------
   public LinkedMinHeap ()
   {
@@ -24,7 +24,7 @@ public class LinkedMinHeap<T extends Comparable<T>>
   }
   
   //-----------------------------------------------------------------
-  //  Creates a max heap with the specified element as its root.
+  //  Creates a min heap with the specified element as its root.
   //-----------------------------------------------------------------
   public LinkedMinHeap (T element)
   {
@@ -60,7 +60,7 @@ public class LinkedMinHeap<T extends Comparable<T>>
   }
   
   //-----------------------------------------------------------------
-  //  Remove the element with the largest value in this heap and
+  //  Remove the element with the smallest value in this heap and
   //  returns a reference to it.
   //-----------------------------------------------------------------
   public T removeMin()
@@ -98,6 +98,6 @@ public class LinkedMinHeap<T extends Comparable<T>>
   //-----------------------------------------------------------------
   //  The following method is left as a programming project.
   //-----------------------------------------------------------------
-  // public T getMax() { }
+  // public T getMin() { }
   
 }
